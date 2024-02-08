@@ -8,7 +8,7 @@ function Header(props) {
     return(<header>
         Header
         <Hero />
-        <Login />
+        <SignIn />
     </header>)
 }
 
