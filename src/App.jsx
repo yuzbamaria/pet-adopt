@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css'
 import Home from "./pages/Home"
 import Header from "./components/Header"
@@ -6,13 +7,11 @@ import Wrapper from "./components/Wrapper"
 import Footer from "./components/Footer"
 
 function App() {
-  return (<div>
+  return (<Router>
     <Header />
-    <Wrapper>
-      <Home />
-    </Wrapper>
+    <Wrapper />
     <Footer />
-  </div>)
+  </Router>)
 }
 
 export default App
