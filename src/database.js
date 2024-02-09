@@ -30,15 +30,14 @@ const database = {
     user
 }
 
-const usernameInput = document.getElementById("username");
-const passwordInput = document.getElementById("password");
-
 console.log(database)
 
 function addInputToDB(e){
     e.preventDefault();
-    console.log("test")
-    // console.log(usernameInput.textContent, passwordInput.textContent)
+    const usernameInput = document.querySelector("#username");
+    const passwordInput = document.querySelector("#password");
+    // console.log("test")
+    console.log(usernameInput.textContent, passwordInput.textContent)
 }
 
 export {addInputToDB}
