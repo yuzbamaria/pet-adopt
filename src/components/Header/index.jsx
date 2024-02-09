@@ -7,7 +7,6 @@ import Hero from "../Hero";
 function Header(props) {
     return(<header>
         <Hero />
-        <SignIn />
     </header>)
 }
 
