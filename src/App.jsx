@@ -9,6 +9,7 @@ function App() {
   return (<Router>
     <Header />
     <Wrapper />
+
     <Footer />
   </Router>)
 }
