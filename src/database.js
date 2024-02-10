@@ -31,14 +31,14 @@ const database = {
     user
 }
 
+
+
 console.log(database)
 
-function addInputToDB(e){
-    e.preventDefault();
-    const usernameInput = document.querySelector("#username");
-    const passwordInput = document.querySelector("#password");
-    // console.log("test")
-    console.log(usernameInput.textContent, passwordInput.textContent)
+function addInputToDB(data){
+    //setTimeout(()=>{
+        console.log(...data);
+    //}, 500)
 }
 
 export {addInputToDB}

@@ -1,17 +1,13 @@
 import React from "react";
 import "./css/Testing.css"
-// import {addInputToDB} from "../database.js";
+import {addInputToDB} from "../database.js";
 import {useState, useEffect} from 'react';
 
 function Testing() {
-    const [pwdState, setPwdState] = useState("");
-    const [userState, setUserState] = useState("");
+    const [pwd, setPwd] = useState("");
+    const [user, setUser] = useState("");
     // useEffect(()=>{
-    //     console.log("using pwd state")
-    // },[pwdState])
-    function testInput(){
-        console.log(pwdState, userState);
-    }
+    // },[pwd])
     return(<div>
         Testing
         <div className="box">
@@ -20,7 +16,7 @@ function Testing() {
                 <input
                 id="username" 
                 type="text" 
-                onChange={(e)=>{setUserState(e.target.value)}}
+                onChange={(e)=>{setUser(e.target.value)}}
                 />
             </div>
             <div className="passwordContainer">
@@ -28,13 +24,16 @@ function Testing() {
                 <input 
                 id="password" 
                 type="password" 
-                onChange={(e)=>{setPwdState(e.target.value)}}
+                onChange={(e)=>{setPwd(e.target.value)}}
                 />
             </div>
             <label htmlFor="pwdSubmit"></label>
             <button 
             id="pwdSubmit" 
-            onClick={testInput}
+            onClick={()=>{
+                console.log("onClick is being called")
+                addInputToDB([user, pwd])
+            }}
             >
                 Submit
             </button>
