@@ -3,7 +3,6 @@ const userDB = {
 
 }
 
-
 function signupNewUser (userInput){
     // console.log(...userInput);
     // add user/pwd if not in database, else don't change anything
@@ -11,6 +10,7 @@ function signupNewUser (userInput){
     //console.log(userDB);
     if (userDB[userInput[0]] === userInput[1]){
         // if sign up successful, authenticate login and redirect to successful login
+        
     }
 }
 

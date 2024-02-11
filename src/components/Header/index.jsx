@@ -1,8 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import "./style.css"
 // import SignIn from "../../pages/SignIn";
 // import Hero from "../Hero";
 import { Link, NavLink } from "react-router-dom";
+import { Avatar } from "@mui/material";
 // import CreateSkill from "../../pages/CreateSkill";
 
 // function Navbar(props) {
@@ -14,51 +16,63 @@ import { Link, NavLink } from "react-router-dom";
 // }
 
 function Header() {
+const [loggedIn, setLoggedIn] = useState(true);
+
     return (
         <nav className="navbar navbar-expand-md bg-body-tertiary">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
                     Force Mastery Tracker
                 </Link>
-                <button 
-                    className="navbar-toggler" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#navbarTogglerDemo02" 
-                    aria-controls="navbarTogglerDemo02" 
-                    aria-expanded="false" 
-                    aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-
-                    <li className="nav-item">
-                            <NavLink 
-                            to="/CreateSkill" 
-                            end
-                            className={({ isActive }) =>
-                                isActive ? 'nav-link active' : 'nav-link'
-                            }
-                            >
-                            Add a skill
-                            </NavLink> 
-                        </li>
+                
+                <div className="nav-options">
+                    {loggedIn?
+                    <Link className="profile" to="/userprofile">
+                        <Avatar className="avatar" alt="Profile avatar" src="../../assets/profile-pic.png" />
+                    </Link>
+                    :
+                    <>
+                    <button 
+                        className="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#navbarTogglerDemo02" 
+                        aria-controls="navbarTogglerDemo02" 
+                        aria-expanded="false" 
+                        aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="navbar-nav collapse navbar-collapse " id="navbarTogglerDemo02">
+                        <ul className="ms-auto mb-2 mb-lg-0">
 
                         <li className="nav-item">
-                            <NavLink 
-                            to="/SignIn" 
-                            end
-                            className={({ isActive }) =>
-                                isActive ? 'nav-link active' : 'nav-link'
-                            }
-                            >
-                            Sign In
-                            </NavLink> 
-                        </li>
+                                <NavLink 
+                                to="/CreateSkill" 
+                                end
+                                className={({ isActive }) =>
+                                    isActive ? 'nav-link active' : 'nav-link'
+                                }
+                                >
+                                Add a skill
+                                </NavLink> 
+                            </li>
 
-                    </ul>
+                            <li className="nav-item">
+                                <NavLink 
+                                to="/SignIn" 
+                                end
+                                className={({ isActive }) =>
+                                    isActive ? 'nav-link active' : 'nav-link'
+                                }
+                                >
+                                Sign In
+                                </NavLink> 
+                            </li>
+                        </ul>
+                    </div>
+                    </>}
                 </div>
+                
             </div>
         </nav>
     )
