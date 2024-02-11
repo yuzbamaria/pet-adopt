@@ -1,17 +1,24 @@
 import React from "react";
-// import CourseraSearch from "../components/CourseraSearch";
-// import SearchInput from "../components/SearchInput";
 import Calendar from "../components/Calendar";
-// import SkillNameInput from "../components/SkillNameInput";
+import SkillNameInput from "../components/SkillNameInput";
 import YoutubeAPIResult from "../components/YoutubeAPIResult";
 
 function CreateSkill() {
     return(<div>
-        <h1>Add a new skill</h1>
-        {/* <SkillNameInput /> */}
-        {/* <CourseraSearch /> */}
+         <div className="container">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+         <div className="card">
+            <div className="card-body">
+        <h1 className="card-title text-center">Add a new skill</h1>
+        <SkillNameInput />
         <Calendar />
         <YoutubeAPIResult />
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>)
 }
 

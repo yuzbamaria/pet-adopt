@@ -29,7 +29,7 @@ function YoutubeAPI() {
           onChange={handleChange}
           placeholder="Enter keywords"
         />
-        <button onClick={searchVideos}>Search</button>
+        <button className='btn btn-warning shadow m-2 ' onClick={searchVideos}>Search</button>
       </div>
       <ul>
         {videos.map((video) => (
