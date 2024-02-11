@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import { authenticateUser, loginStatus } from "../database.js";
+import { signupNewUser } from "../database";
 
 
 const defaultTheme = createTheme();
@@ -28,7 +28,7 @@ export default function SignIn() {
     //   email: data.get('email'),
     //   password: data.get('password'),
     // });
-    authenticateUser([userName, password])
+    signupNewUser([userName, password]);
   };
 
   return (
@@ -47,7 +47,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -72,28 +72,14 @@ export default function SignIn() {
               autoComplete="current-password"
               onChange={(e)=>{setPassword(e.target.value)}}
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              // onSubmit={authenticateUser([userName, password])}
             >
-              Sign In
+              Sign Up
             </Button>
-            <Grid container>
-              <Grid item xs>
-              </Grid>
-              <Grid item>
-                <Link href="/SignUp" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>

@@ -1,0 +1,17 @@
+.navbar-nav {
+    max-width: fit-content;
+    justify-content: end;
+    .nav-item {
+        display: inline-block;
+    }
+}
+
+.nav-options{
+    display: flex;
+    justify-content:end;
+    align-items: center;
+}
+
+.profile {
+    text-decoration: none;
+}
