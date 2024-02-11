@@ -9,6 +9,7 @@ function Wrapper(props) {
     return(<main>
         <Routes>
             <Route path="/" element={<Home/>} />
+            <Route path="/SignIn" element={<SignIn/>} />
             <Route path="/SignUp" element={<SignUp/>} />
             <Route path="/CreateSkill" element={<CreateSkill/>} />
         </Routes>

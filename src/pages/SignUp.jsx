@@ -79,7 +79,6 @@ export default function SignIn() {
             >
               Sign Up
             </Button>
-            
           </Box>
         </Box>
       </Container>
