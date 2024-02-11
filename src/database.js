@@ -17,12 +17,14 @@ function signupNewUser (userInput){
 function authenticateUser(userInput){
     // console.log(...userInput);
     if (userDB[userInput[0]] && userDB[userInput[1]]){
-        //redirect user to successful login
+        console.log("successful login")
     }
     else if (userDB[userInput[0]] && !userDB[userInput[1]]){
+        console.log("incorrect password!")
         //incorrect password message
     }
     else if (!userDB[userInput[0]]){
+        console.log("user does not exist!")
         // user does not exist message
     }
 }
