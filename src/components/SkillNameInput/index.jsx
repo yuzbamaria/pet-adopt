@@ -29,8 +29,6 @@ const SkillNameInput = () => {
                 value={skillName}
                 onChange={handleChange}
                 />
-            </div>
-            <div>
                 <button className='btn btn-primary shadow m-2' type="submit">Submit</button>
             </div>
             
