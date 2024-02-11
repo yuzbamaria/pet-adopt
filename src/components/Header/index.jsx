@@ -17,7 +17,8 @@ import { loginStatus } from "../../database";
 // }
 
 function Header() {
-const [loggedIn, setLoggedIn] = useState(loginStatus);
+// const [loggedIn, setLoggedIn] = useState(loginStatus);
+const [loggedIn, setLoggedIn] = useState(true);
 
     return (
         <nav className="navbar navbar-expand-md bg-body-tertiary">
@@ -29,49 +30,60 @@ const [loggedIn, setLoggedIn] = useState(loginStatus);
                 <div className="nav-options">
                     {loggedIn
                     ?
-                    <Link className="profile" to="/userprofile">
-                        <Avatar className="avatar" alt="Profile avatar" src="../../assets/profile-pic.png" />
-                    </Link>
+                    <>
+                        <NavLink 
+                        to="/CreateSkill" 
+                        end
+                        className={({ isActive }) =>
+                            isActive ? 'nav-link active create-skill' : 'nav-link create-skill'
+                        }
+                        >
+                        Add a skill
+                        </NavLink> 
+                        <Link className="profile" to="/userprofile">
+                            <Avatar className="avatar" alt="Profile avatar" src="../../assets/profile-pic.png" />
+                        </Link>
+                    </>
                     :
                     <>
-                    <button 
-                        className="navbar-toggler" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#navbarTogglerDemo02" 
-                        aria-controls="navbarTogglerDemo02" 
-                        aria-expanded="false" 
-                        aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="navbar-nav collapse navbar-collapse " id="navbarTogglerDemo02">
-                        <ul className="ms-auto mb-2 mb-lg-0">
+                        <button 
+                            className="navbar-toggler" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#navbarTogglerDemo02" 
+                            aria-controls="navbarTogglerDemo02" 
+                            aria-expanded="false" 
+                            aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="navbar-nav collapse navbar-collapse " id="navbarTogglerDemo02">
+                            <ul className="ms-auto mb-2 mb-lg-0">
 
-                        <li className="nav-item">
-                                <NavLink 
-                                to="/CreateSkill" 
-                                end
-                                className={({ isActive }) =>
-                                    isActive ? 'nav-link active' : 'nav-link'
-                                }
-                                >
-                                Add a skill
-                                </NavLink> 
-                            </li>
+                                {/* <li className="nav-item">
+                                    <NavLink 
+                                    to="/CreateSkill" 
+                                    end
+                                    className={({ isActive }) =>
+                                        isActive ? 'nav-link active' : 'nav-link'
+                                    }
+                                    >
+                                    Add a skill
+                                    </NavLink> 
+                                </li> */}
 
-                            <li className="nav-item">
-                                <NavLink 
-                                to="/SignIn" 
-                                end
-                                className={({ isActive }) =>
-                                    isActive ? 'nav-link active' : 'nav-link'
-                                }
-                                >
-                                Sign In
-                                </NavLink> 
-                            </li>
-                        </ul>
-                    </div>
+                                <li className="nav-item">
+                                    <NavLink 
+                                    to="/SignIn" 
+                                    end
+                                    className={({ isActive }) =>
+                                        isActive ? 'nav-link active' : 'nav-link'
+                                    }
+                                    >
+                                    Sign In
+                                    </NavLink> 
+                                </li>
+                            </ul>
+                        </div>
                     </>}
                 </div>
                 

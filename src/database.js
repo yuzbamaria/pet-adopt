@@ -16,6 +16,7 @@ function signupNewUser (userInput){
         console.log("new user signed up!");
         loginStatus(true);
         // setLoggedIn(loginStatus(true));
+        // setLoggedIn(true);
     }
 }
 
