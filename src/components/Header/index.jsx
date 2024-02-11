@@ -27,7 +27,7 @@ const [loggedIn, setLoggedIn] = useState(true);
                     Force Mastery Tracker
                 </Link>
                 
-                <div className="nav-options">
+                <div className="nav-options" loggedIn={loggedIn}>
                     {loggedIn
                     ?
                     <>
