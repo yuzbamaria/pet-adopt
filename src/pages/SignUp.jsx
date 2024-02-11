@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import { signupNewUser, authenticateUser } from "../database";
+import { signupNewUser } from "../database";
 
 
 const defaultTheme = createTheme();
@@ -23,11 +23,12 @@ export default function SignIn() {
   const [password, setPassword] = useState();
   const handleSubmit = (event/* : React.FormEvent<HTMLFormElement> */) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    // const data = new FormData(event.currentTarget);
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
+    signupNewUser([userName, password]);
   };
 
   return (
