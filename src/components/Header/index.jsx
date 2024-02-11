@@ -5,7 +5,7 @@ import "./style.css"
 // import Hero from "../Hero";
 import { Link, NavLink } from "react-router-dom";
 import { Avatar } from "@mui/material";
-//import DB from "../../database.js";
+import { loginStatus } from "../../database";
 // import CreateSkill from "../../pages/CreateSkill";
 
 // function Navbar(props) {
@@ -17,7 +17,7 @@ import { Avatar } from "@mui/material";
 // }
 
 function Header() {
-const [loggedIn, setLoggedIn] = useState(false);
+const [loggedIn, setLoggedIn] = useState(loginStatus);
 
     return (
         <nav className="navbar navbar-expand-md bg-body-tertiary">

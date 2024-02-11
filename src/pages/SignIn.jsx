@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import { authenticateUser } from "../database.js";
+import { authenticateUser, loginStatus } from "../database.js";
 
 
 const defaultTheme = createTheme();
