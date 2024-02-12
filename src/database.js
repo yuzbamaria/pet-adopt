@@ -1,10 +1,10 @@
-// import { setLoggedIn } from "./components/Header";
+import * as Header from "./components/Header";
 
 const userDB = {
 
 }
 
-const loginStatus = (bool=false) => bool;
+export let loginStatus = false;
 
 function signupNewUser (userInput){
     // console.log(...userInput);
@@ -14,7 +14,8 @@ function signupNewUser (userInput){
     if (userDB[userInput[0]] === userInput[1]){
         // if sign up successful, authenticate login and redirect to successful login
         console.log("new user signed up!");
-        loginStatus(true);
+        loginStatus = true;
+        Header.setLoggedIn(loginStatus);
         // setLoggedIn(loginStatus(true));
         // setLoggedIn(true);
     }
@@ -24,7 +25,8 @@ function authenticateUser(userInput){
     // console.log(...userInput);
     if (userDB[userInput[0]] && userDB[userInput[1]]){
         console.log("successful login")
-        loginStatus(true);
+        loginStatus = true;
+        Header.setLoggedIn(loginStatus);
     }
     else if (userDB[userInput[0]] && !userDB[userInput[1]]){
         console.log("incorrect password!")
@@ -36,4 +38,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {signupNewUser, authenticateUser, loginStatus}
+export {signupNewUser, authenticateUser}

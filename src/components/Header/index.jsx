@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./style.css"
 // import SignIn from "../../pages/SignIn";
 // import Hero from "../Hero";
@@ -18,7 +18,11 @@ import { loginStatus } from "../../database";
 
 function Header() {
 // const [loggedIn, setLoggedIn] = useState(loginStatus);
-const [loggedIn, setLoggedIn] = useState(true);
+const [loggedIn, setLoggedIn] = useState(false);
+let bool_login = false;
+/* useEffect(()=>{
+    setLoggedIn(loginStatus)
+},[]) */
 
     return (
         <nav className="navbar navbar-expand-md bg-body-tertiary">
@@ -27,7 +31,7 @@ const [loggedIn, setLoggedIn] = useState(true);
                     Force Mastery Tracker
                 </Link>
                 
-                <div className="nav-options" loggedIn={loggedIn}>
+                <div className="nav-options" is-user-logged-in={`${loggedIn}`}>
                     {loggedIn
                     ?
                     <>
