@@ -4,7 +4,15 @@ let userDB = {
 }
 
 function checkLocal(){
+    // use this function BEFORE adding new data to userDB. 
+    // checks if saved data exists in local storage and loads it to userDB if it exists.
     userDB = (localStorage.getItem("skills-tracker")) ? JSON.parse(localStorage.getItem("skills-tracker")) : userDB;
+}
+
+function saveToLocal(){
+    // use this function AFTER adding new data to userDB.
+    // saves all objects nested in userDB to localStorage.
+    localStorage.setItem("skills-tracker", JSON.stringify(userDB));
 }
 
 function signupNewUser (userInput){
@@ -15,8 +23,8 @@ function signupNewUser (userInput){
     //console.log(userDB);
     if (userDB["userAccounts"][userInput[0]] === userInput[1]){
         // if sign up successful, authenticate login and redirect to successful login
-        console.log("new user signed up!");
-        localStorage.setItem("skills-tracker", JSON.stringify(userDB));
+        console.log("new user signed up!");     
+        saveToLocal();
         return true;        
     }
 }
@@ -26,7 +34,7 @@ function authenticateUser(userInput){
     checkLocal()
     if (userDB["userAccounts"][userInput[0]] === userInput[1]){
         console.log("successful login")
-        localStorage.setItem("skills-tracker", JSON.stringify(userDB));
+        saveToLocal();
         return true;
     }
     else if (userDB["userAccounts"][userInput[0]] && userDB["userAccounts"][userInput[0]] !== userInput[1]){
