@@ -23,10 +23,12 @@ const Calendar = ({}) => {
 
         const handleStartDateChange = (date) => {
             setStartDate(date);
+            localStorage.setItem("startDate", JSON.stringify(startDate));
         };
 
         const handleFinishDateChange = (date) => {
             setFinishDate(date);
+            localStorage.setItem("finishDate", JSON.stringify(finishDate));
         };
     
     return (
