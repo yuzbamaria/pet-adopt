@@ -2,8 +2,11 @@
 // import { useProfileUpdateContext } from "./components/ProfileContext"
 
 // const toggleLogin = useProfileUpdateContext();
-const userDB = {
 
+let userDB = {}
+
+window.onload = function(){
+    userDB = (localStorage.getItem("skills-tracker")) ? JSON.parse(localStorage.getItem("skills-tracker")) : {};
 }
 
 // export let loginStatus = false;
@@ -16,7 +19,7 @@ function signupNewUser (userInput){
     if (userDB[userInput[0]] === userInput[1]){
         // if sign up successful, authenticate login and redirect to successful login
         console.log("new user signed up!");
-
+        localStorage.setItem("skills-tracker", JSON.stringify(userDB));
         return true;        
     }
 }
@@ -25,7 +28,7 @@ function authenticateUser(userInput){
     // console.log(...userInput);
     if (userDB[userInput[0]] && userDB[userInput[1]]){
         console.log("successful login")
-        
+        localStorage.setItem("skills-tracker", JSON.stringify(userDB));
         return true;
     }
     else if (userDB[userInput[0]] && !userDB[userInput[1]]){
