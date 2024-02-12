@@ -5,8 +5,8 @@
 
 let userDB = {}
 
-window.onload = function(){
-    userDB = (localStorage.getItem("skills-tracker")) ? JSON.parse(localStorage.getItem("skills-tracker")) : {};
+function checkLocal(){
+    userDB = (localStorage.getItem("skills-tracker")) ? JSON.parse(localStorage.getItem("skills-tracker")) : userDB;
 }
 
 // export let loginStatus = false;
@@ -14,6 +14,7 @@ window.onload = function(){
 function signupNewUser (userInput){
     // console.log(...userInput);
     // add user/pwd if not in database, else don't change anything
+    checkLocal()
     userDB[userInput[0]] = !userDB[userInput[0]] ? userInput[1] : userDB[userInput[0]]
     //console.log(userDB);
     if (userDB[userInput[0]] === userInput[1]){
@@ -26,6 +27,7 @@ function signupNewUser (userInput){
 
 function authenticateUser(userInput){
     // console.log(...userInput);
+    checkLocal()
     if (userDB[userInput[0]] && userDB[userInput[1]]){
         console.log("successful login")
         localStorage.setItem("skills-tracker", JSON.stringify(userDB));

@@ -2,10 +2,11 @@ import React from "react";
 import "./style.css"
 import { Link, NavLink } from "react-router-dom";
 import { Avatar } from "@mui/material";
-import { useProfileContext } from "../ProfileContext";
+import { useProfileContext, useProfileUpdateContext  } from "../ProfileContext";
 
 function Header() {
     const loggedIn = useProfileContext();
+    const toggleLogin = useProfileUpdateContext();
 
     return (
     <>
@@ -28,6 +29,9 @@ function Header() {
                         >
                         Add a skill
                         </NavLink> 
+                        <Link className="logout" to="/" onClick={toggleLogin}>
+                            Logout
+                        </Link>
                         <Link className="profile" to="/userprofile">
                             <Avatar className="avatar" alt="Profile avatar" src="../../assets/profile-pic.png" />
                         </Link>
