@@ -1,3 +1,8 @@
 .create-skill, .logout {
     margin-right: 1.5rem;
+    text-decoration: none;
+}
+
+.logout {
+    color: var(--bs-nav-link-color)
 }
