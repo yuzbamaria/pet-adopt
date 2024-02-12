@@ -1,8 +1,4 @@
 
-// import { useProfileUpdateContext } from "./components/ProfileContext"
-
-// const toggleLogin = useProfileUpdateContext();
-
 let userDB = {
     userAccounts:{},
 }
@@ -10,8 +6,6 @@ let userDB = {
 function checkLocal(){
     userDB = (localStorage.getItem("skills-tracker")) ? JSON.parse(localStorage.getItem("skills-tracker")) : userDB;
 }
-
-// export let loginStatus = false;
 
 function signupNewUser (userInput){
     // console.log(...userInput);

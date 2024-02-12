@@ -1,0 +1,10 @@
+.home {
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 10px;
+    height: 30rem;
+    width: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+}
