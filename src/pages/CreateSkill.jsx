@@ -2,6 +2,7 @@ import React from "react";
 import Calendar from "../components/Calendar";
 import SkillNameInput from "../components/SkillNameInput";
 import YoutubeAPIResult from "../components/YoutubeAPIResult";
+import ToDoList from "../components/ToDoList";
 
 function CreateSkill() {
     return(<div>
@@ -16,6 +17,7 @@ function CreateSkill() {
                             <SkillNameInput />
                             <Calendar />
                             <YoutubeAPIResult />
+                            <ToDoList />
                         </div>
                     </div>
                 </div>
