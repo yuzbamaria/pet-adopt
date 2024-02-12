@@ -13,12 +13,15 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import { authenticateUser, loginStatus } from "../database.js";
+import { authenticateUser } from "../database.js";
+
+import { useProfileUpdateContext } from "../components/ProfileContext.jsx"
 
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const toggleLogin = useProfileUpdateContext();
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
   const handleSubmit = (event/* : React.FormEvent<HTMLFormElement> */) => {
@@ -28,7 +31,7 @@ export default function SignIn() {
     //   email: data.get('email'),
     //   password: data.get('password'),
     // });
-    authenticateUser([userName, password])
+    if(authenticateUser([userName, password]))toggleLogin();
   };
 
   return (

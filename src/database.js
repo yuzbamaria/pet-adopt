@@ -1,10 +1,12 @@
-// import { setLoggedIn } from "./components/Header";
 
+// import { useProfileUpdateContext } from "./components/ProfileContext"
+
+// const toggleLogin = useProfileUpdateContext();
 const userDB = {
 
 }
 
-const loginStatus = (bool=false) => bool;
+// export let loginStatus = false;
 
 function signupNewUser (userInput){
     // console.log(...userInput);
@@ -14,9 +16,8 @@ function signupNewUser (userInput){
     if (userDB[userInput[0]] === userInput[1]){
         // if sign up successful, authenticate login and redirect to successful login
         console.log("new user signed up!");
-        loginStatus(true);
-        // setLoggedIn(loginStatus(true));
-        // setLoggedIn(true);
+
+        return true;        
     }
 }
 
@@ -24,7 +25,8 @@ function authenticateUser(userInput){
     // console.log(...userInput);
     if (userDB[userInput[0]] && userDB[userInput[1]]){
         console.log("successful login")
-        loginStatus(true);
+        
+        return true;
     }
     else if (userDB[userInput[0]] && !userDB[userInput[1]]){
         console.log("incorrect password!")
@@ -36,4 +38,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {signupNewUser, authenticateUser, loginStatus}
+export {signupNewUser, authenticateUser}
