@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,15 +13,14 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
 import { authenticateUser } from "../database.js";
-
 import { useProfileUpdateContext } from "../components/ProfileContext.jsx"
 
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+  const navigate = useNavigate();
   const toggleLogin = useProfileUpdateContext();
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
@@ -31,7 +31,10 @@ export default function SignIn() {
     //   email: data.get('email'),
     //   password: data.get('password'),
     // });
-    if(authenticateUser([userName, password]))toggleLogin();
+    if(authenticateUser([userName, password])){
+      toggleLogin();
+      navigate("/userprofile")
+    }
   };
 
   return (
