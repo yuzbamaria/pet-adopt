@@ -6,6 +6,7 @@ import SignIn from "../../pages/SignIn";
 import SignUp from "../../pages/SignUp";
 import CreateSkill from "../../pages/CreateSkill";
 import Profile from "../../pages/Profile";
+import Dashboard from "../../pages/Dashboard";
 
 function Wrapper(props) {
     return(<main>
@@ -15,6 +16,7 @@ function Wrapper(props) {
             <Route path="/SignUp" element={<SignUp/>} />
             <Route path="/userprofile" element={<Profile/>} />
             <Route path="/CreateSkill" element={<CreateSkill/>} />
+            <Route path="/dashboard" element={<Dashboard/>} />
         </Routes>
     </main>)
 }
