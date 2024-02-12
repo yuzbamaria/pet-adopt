@@ -1,10 +1,12 @@
-import * as Header from "./components/Header";
 
+// import { useProfileUpdateContext } from "./components/ProfileContext"
+
+// const toggleLogin = useProfileUpdateContext();
 const userDB = {
 
 }
 
-export let loginStatus = false;
+// export let loginStatus = false;
 
 function signupNewUser (userInput){
     // console.log(...userInput);
@@ -14,10 +16,8 @@ function signupNewUser (userInput){
     if (userDB[userInput[0]] === userInput[1]){
         // if sign up successful, authenticate login and redirect to successful login
         console.log("new user signed up!");
-        loginStatus = true;
-        Header.setLoggedIn(loginStatus);
-        // setLoggedIn(loginStatus(true));
-        // setLoggedIn(true);
+
+        return true;        
     }
 }
 
@@ -25,8 +25,8 @@ function authenticateUser(userInput){
     // console.log(...userInput);
     if (userDB[userInput[0]] && userDB[userInput[1]]){
         console.log("successful login")
-        loginStatus = true;
-        Header.setLoggedIn(loginStatus);
+        
+        return true;
     }
     else if (userDB[userInput[0]] && !userDB[userInput[1]]){
         console.log("incorrect password!")

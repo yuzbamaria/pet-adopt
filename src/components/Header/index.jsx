@@ -1,37 +1,21 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import "./style.css"
-// import SignIn from "../../pages/SignIn";
-// import Hero from "../Hero";
 import { Link, NavLink } from "react-router-dom";
 import { Avatar } from "@mui/material";
-import { loginStatus } from "../../database";
-// import CreateSkill from "../../pages/CreateSkill";
-
-// function Navbar(props) {
-//     return(<header>
-//         Header
-//         <Hero />
-//         <SignIn />
-//     </header>)
-// }
+import { useProfileContext } from "../ProfileContext";
 
 function Header() {
-// const [loggedIn, setLoggedIn] = useState(loginStatus);
-const [loggedIn, setLoggedIn] = useState(false);
-let bool_login = false;
-/* useEffect(()=>{
-    setLoggedIn(loginStatus)
-},[]) */
+    const loggedIn = useProfileContext();
 
     return (
+    <>
         <nav className="navbar navbar-expand-md bg-body-tertiary">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
                     Force Mastery Tracker
                 </Link>
                 
-                <div className="nav-options" is-user-logged-in={`${loggedIn}`}>
+                <div className="nav-options">
                     {loggedIn
                     ?
                     <>
@@ -90,10 +74,9 @@ let bool_login = false;
                         </div>
                     </>}
                 </div>
-                
             </div>
         </nav>
-    )
+    </>)
 }
 
 export default Header;
