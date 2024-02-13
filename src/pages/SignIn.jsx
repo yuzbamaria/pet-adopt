@@ -13,7 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { authenticateUser } from "../database.js";
+import { authenticateUser } from "../utils/database.js";
 import { useProfileUpdateContext } from "../components/ProfileContext.jsx"
 
 

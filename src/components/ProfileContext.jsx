@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { currentUser } from "../database";
+import { currentUser } from "../utils/database";
 
 const ProfileContext = React.createContext();
 const ProfileUpdateContext = React.createContext();

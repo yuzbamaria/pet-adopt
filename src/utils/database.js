@@ -1,44 +1,50 @@
 
 let currentUser;
 
-
 let userDB = {
     userAccounts:{}
 }
 
-const addSkill = (username, skill)=>{
+const addSkillToUser = (username, skill)=>{
     userDB.userAccounts[username]["skills"].push(skill)
-    saveToLocal();
+    //saveToLocal();
+    setLocal();
+}
+
+const addStartDate = (date)=>{
+    const index = userDB.userAccounts[currentUser]["skills"].length;
+    userDB.userAccounts[currentUser]["skills"][index][0]=date;
 }
 
 const createUser = (username, pass)=>{
     userDB.userAccounts[username]={
-        ...userDB.userAccounts[username],
         password:pass,
         skills:[],
     }
 }
 
-function checkLocal(){
+function getLocal(storageKey="skills-tracker", storageValue=userDB){
     // use this function BEFORE adding new data to userDB. 
     // checks if saved data exists in local storage and loads it to userDB if it exists.
-    userDB = (localStorage.getItem("skills-tracker")) ? JSON.parse(localStorage.getItem("skills-tracker")) : userDB;
+    storageValue = (localStorage.getItem(storageKey)) ? JSON.parse(localStorage.getItem(storageKey)) : storageValue;
+    return storageValue;
 }
 
-function saveToLocal(){
+function setLocal(storageKey="skills-tracker", storageValue=userDB){
     // use this function AFTER adding new data to userDB.
     // saves all objects nested in userDB to localStorage.
-    localStorage.setItem("skills-tracker", JSON.stringify(userDB));
+    localStorage.setItem(storageKey, JSON.stringify(storageValue));
 }
 
 function signupNewUser (userInput){
     const username = userInput[0];
     const password = userInput[1];
-    checkLocal()
+    checkLocal("skills-tracker", userDB, false)
     // add user if not in database, else don't change anything
     if (!userDB.userAccounts[username]) {
         createUser(username, password)
-        saveToLocal();
+        //saveToLocal();
+        setLocal();
         currentUser = username;
         console.log("new user signed up!");     
         return true;
@@ -53,7 +59,9 @@ function signupNewUser (userInput){
 function authenticateUser(userInput){
     const username = userInput[0];
     const password = userInput[1];
-    checkLocal()
+    console.log(userInput)
+    userDB=getLocal("skills-tracker", userDB);
+    console.log(userDB)
     if (userDB.userAccounts[username]["password"] === password){
         console.log("successful login")
         currentUser = username;
@@ -69,4 +77,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {currentUser, signupNewUser, authenticateUser, addSkill} 
+export {currentUser, signupNewUser, authenticateUser, addSkillToUser, addStartDate, getLocal, setLocal} 

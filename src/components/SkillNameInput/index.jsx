@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
-import { addSkill, currentUser } from '../../database'
+import { addSkillToUser, currentUser } from '../../utils/database'
 
 const SkillNameInput = () => {
     const [skillName, setSkillName] = useState('');
@@ -14,14 +14,14 @@ const SkillNameInput = () => {
         // Check if the skillName is not empty
         if (trimmedSkillName) {
           // Save the skillName to local storage
-          localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
-          addSkill(currentUser, trimmedSkillName);
+          // localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
+          addSkillToUser(currentUser, trimmedSkillName);
           // Clear the input field after saving
           setSkillName('');
           // Set the submitted state to true
           setIsSubmitted(true);
           // Call the onSubmit callback with the trimmedSkillName
-          onSubmit(trimmedSkillName);
+          // onSubmit(trimmedSkillName);
         } else {
           // Show error message if input is empty
           setIsEmptyError(true);
