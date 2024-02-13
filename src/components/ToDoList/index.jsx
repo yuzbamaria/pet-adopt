@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function ToDoList() {
     // State for managing the list of to-do items
     // An empty array to store todo items 
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(() => {
+        const storedTodos = localStorage.getItem("todos");
+        return storedTodos ? JSON.parse(storedTodos) : [];
+    });
     // State for managing the text input value
     const [inputText, setInputText] = useState('');
 
@@ -47,6 +50,19 @@ const handleCheckboxChange = (id) => {
         return todo;
     }));
 };
+
+// Effect to load todos from local storage when component mounts
+// useEffect(() => {
+//     const storedTodos = JSON.parse(localStorage.getItem("todos"));
+//     if (storedTodos) {
+//         setTodos(storedTodos);
+//     }
+// }, []);
+
+// Effect to save todos to local storage whenever todos change
+useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}, [todos]);
 
  // Render the TodoList component
  return (

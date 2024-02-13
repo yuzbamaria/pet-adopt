@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.css'; 
 
@@ -7,11 +7,41 @@ function YoutubeAPI() {
   const [searchTerm, setSearchTerm] = useState('');
   // (state) Creating a hook for the fetched videos
   const [videos, setVideos] = useState([]);
+  const [selectedVideos, setSelectedVideos] = useState([]);
 
   // Function to handle changes in the search input
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
+
+  const handleCheckboxChange = (videoId) => {
+    // Check if the videoId is already selected
+    const index = selectedVideos.indexOf(videoId);
+    if (index === -1) {
+      // Add the videoId to selectedVideos if not already selected
+      setSelectedVideos([...selectedVideos, videoId]);
+    } else {
+      // Remove the videoId from selectedVideos if already selected
+      // Creates a copy of the selectedVideos array using the spread operator 
+      // Ensures that the original selectedVideos array is not modified directly
+      const updatedSelectedVideos = [...selectedVideos];
+      // splice() modifies an array by removing or replacing existing elements and/or adding new elements.
+      // index parameter specifies the index at which to start removing elements,
+      // and the 1 parameter indicates how many elements to remove.
+      // So, removes one element from the updatedSelectedVideos array at the specified index (index), 
+      // effectively removing the selected video from the list.
+      updatedSelectedVideos.splice(index, 1);
+      // Updates the state to reflect the removal of the selected video from the list.
+      setSelectedVideos(updatedSelectedVideos);
+    }
+  };
+
+useEffect(() => {
+  // Save selected videos to local storage whenever selectedVideos changes
+  localStorage.setItem('selectedVideos', JSON.stringify(selectedVideos));
+  // The dependency array [selectedVideos] specifies that it should only run when the selectedVideos variable changes.
+}, [selectedVideos]);
+
 
   // asynchronous function returns a Promise implicitly, and the await keyword can 
   // be used within an async function to pause the execution of the function until a 
@@ -27,7 +57,9 @@ function YoutubeAPI() {
           key: 'AIzaSyCfM1E9frJRQ29BTnI2c5HjMLvbHPbT66Y',
           q: searchTerm, // The search term entered by the user
           part: 'snippet', // Specifies which parts of the video resource the API response should include. In this case, it's set to snippet, which includes basic details about the video (such as title, description, and thumbnail).
-          type: 'video' // Specifies the type of result which is set to video to retrieve video results
+          type: 'video', // Specifies the type of result which is set to video to retrieve video results
+          relevanceLanguage: 'en',
+          maxResults: 10,
         }
       });
       console.log(response.data);
@@ -47,7 +79,7 @@ function YoutubeAPI() {
           type="text"
           value={searchTerm} // Value of the input field is controlled by the 'searchTerm' state
           onChange={handleChange} // When the input changes, the 'handleChange' function is called
-          placeholder="Enter keywords"  // Placeholder text for the input field
+          placeholder="Add a Youtube tutorial"  // Placeholder text for the input field
         />
         {/* Button triggers the 'searchVideos' function when clicked */}
         <button className='btn btn-warning shadow m-2 ' onClick={searchVideos}>Search</button>
@@ -59,7 +91,18 @@ function YoutubeAPI() {
           // Each video item is rendered as a list item with a unique key
           <li key={video.id.videoId}>
             {/* Checkbox to the left of the video link */}
-            <input type="checkbox" />
+            <input 
+              type="checkbox" 
+              // sets the checked attribute of the checkbox. It determines whether the checkbox 
+              // should be checked or not.
+              // checks if the video.id.videoId (the ID of the video) exists in the 
+              // selectedVideos array. If it does, it returns true, indicating that the checkbox should be checked. If not, it returns false, indicating that the checkbox should not be checked.
+              checked={selectedVideos.includes(video.id.videoId)}
+              // Updates the state based on the checkbox selection. 
+              // When the checkbox is clicked, it calls the handleCheckboxChange function, 
+              // passing the video.id.videoId as an argument.
+              onChange={() => handleCheckboxChange(video.id.videoId)}
+            />
             <a
               href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
               target="_blank"
