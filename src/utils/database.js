@@ -39,7 +39,7 @@ function setLocal(storageKey="skills-tracker", storageValue=userDB){
 function signupNewUser (userInput){
     const username = userInput[0];
     const password = userInput[1];
-    checkLocal("skills-tracker", userDB, false)
+    userDB = getLocal("skills-tracker", userDB)
     // add user if not in database, else don't change anything
     if (!userDB.userAccounts[username]) {
         createUser(username, password)
