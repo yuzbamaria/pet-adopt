@@ -5,14 +5,14 @@ import './App.css';
 import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
 import Footer from "./components/Footer";
-import CreateSkill from "./pages/CreateSkill";
+// import CreateSkill from "./pages/CreateSkill";
 
 
 function App() {
   return (<ProfileProvider>
       <Router>
         <Header />
-        <CreateSkill />
+        {/* <CreateSkill /> */}
         <Wrapper />
         <Footer />
       </Router>
