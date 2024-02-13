@@ -1,24 +1,23 @@
 
+let currentUser;
+
+
 let userDB = {
-    userAccounts:{},
+    userAccounts:{}
 }
 
-let skills = []
-
 const addSkill = (username, skill)=>{
-    skills.push(skill);
-    userDB.userAccounts[username]={
-        skills,
-    }
+    userDB.userAccounts[username]["skills"].push(skill)
     saveToLocal();
 }
 
 const createUser = (username, pass)=>{
     userDB.userAccounts[username]={
+        ...userDB.userAccounts[username],
         password:pass,
+        skills:[],
     }
 }
-
 
 function checkLocal(){
     // use this function BEFORE adding new data to userDB. 
@@ -40,14 +39,15 @@ function signupNewUser (userInput){
     if (!userDB.userAccounts[username]) {
         createUser(username, password)
         saveToLocal();
+        currentUser = username;
         console.log("new user signed up!");     
         return true;
     }
     else console.log("User already exists!")
     //console.log(userDB);
     // if (userDB["userAccounts"][userInput[0]] === userInput[1]){
-    //     // if sign up successful, authenticate login and redirect to successful login
-    // }
+        //     // if sign up successful, authenticate login and redirect to successful login
+        // }
 }
 
 function authenticateUser(userInput){
@@ -56,6 +56,7 @@ function authenticateUser(userInput){
     checkLocal()
     if (userDB.userAccounts[username]["password"] === password){
         console.log("successful login")
+        currentUser = username;
         return true;
     }
     else if (userDB.userAccounts[username] && userDB.userAccounts[username]["password"] !== password){
@@ -68,4 +69,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {signupNewUser, authenticateUser, addSkill} 
+export {currentUser, signupNewUser, authenticateUser, addSkill} 
