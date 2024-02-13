@@ -3,6 +3,23 @@ let userDB = {
     userAccounts:{},
 }
 
+let skills = []
+
+const addSkill = (username, skill)=>{
+    skills.push(skill);
+    userDB.userAccounts[username]={
+        skills,
+    }
+    saveToLocal();
+}
+
+const createUser = (username, pass)=>{
+    userDB.userAccounts[username]={
+        password:pass,
+    }
+}
+
+
 function checkLocal(){
     // use this function BEFORE adding new data to userDB. 
     // checks if saved data exists in local storage and loads it to userDB if it exists.
@@ -16,35 +33,39 @@ function saveToLocal(){
 }
 
 function signupNewUser (userInput){
-    // console.log(...userInput);
-    // add user/pwd if not in database, else don't change anything
+    const username = userInput[0];
+    const password = userInput[1];
     checkLocal()
-    userDB["userAccounts"][userInput[0]] = !userDB["userAccounts"][userInput[0]] ? userInput[1] : userDB["userAccounts"][userInput[0]]
-    //console.log(userDB);
-    if (userDB["userAccounts"][userInput[0]] === userInput[1]){
-        // if sign up successful, authenticate login and redirect to successful login
-        console.log("new user signed up!");     
+    // add user if not in database, else don't change anything
+    if (!userDB.userAccounts[username]) {
+        createUser(username, password)
         saveToLocal();
-        return true;        
+        console.log("new user signed up!");     
+        return true;
     }
+    else console.log("User already exists!")
+    //console.log(userDB);
+    // if (userDB["userAccounts"][userInput[0]] === userInput[1]){
+    //     // if sign up successful, authenticate login and redirect to successful login
+    // }
 }
 
 function authenticateUser(userInput){
-    // console.log(...userInput);
+    const username = userInput[0];
+    const password = userInput[1];
     checkLocal()
-    if (userDB["userAccounts"][userInput[0]] === userInput[1]){
+    if (userDB.userAccounts[username]["password"] === password){
         console.log("successful login")
-        saveToLocal();
         return true;
     }
-    else if (userDB["userAccounts"][userInput[0]] && userDB["userAccounts"][userInput[0]] !== userInput[1]){
+    else if (userDB.userAccounts[username] && userDB.userAccounts[username]["password"] !== password){
         console.log("incorrect password!")
         //incorrect password message
     }
-    else if (!userDB["userAccounts"][userInput[0]]){
+    else if (!userDB.userAccounts[username]){
         console.log("user does not exist!")
         // user does not exist message
     }
 }
 
-export {signupNewUser, authenticateUser} 
+export {signupNewUser, authenticateUser, addSkill} 

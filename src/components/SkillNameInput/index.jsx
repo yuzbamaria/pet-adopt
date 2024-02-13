@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
+// import { addSkill } from '../../database'
 
 const SkillNameInput = () => {
     const [skillName, setSkillName] = useState('');
@@ -14,6 +15,7 @@ const SkillNameInput = () => {
         if (trimmedSkillName) {
           // Save the skillName to local storage
           localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
+          //addSkill(trimmedSkillName);
           // Clear the input field after saving
           setSkillName('');
           // Set the submitted state to true
