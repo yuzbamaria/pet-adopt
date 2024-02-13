@@ -47,4 +47,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {signupNewUser, authenticateUser}
+export {signupNewUser, authenticateUser} 
