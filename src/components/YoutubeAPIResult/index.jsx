@@ -7,7 +7,13 @@ function YoutubeAPI() {
   const [searchTerm, setSearchTerm] = useState('');
   // (state) Creating a hook for the fetched videos
   const [videos, setVideos] = useState([]);
-  const [selectedVideos, setSelectedVideos] = useState([]);
+  // Initialize selectedVideos state with the value from local storage, 
+  // or an empty array if no value is found
+  const [selectedVideos, setSelectedVideos] = useState(() => {
+    const storedSelectedVideos = localStorage.getItem("selectedVideos");
+    return storedSelectedVideos ? JSON.parse(storedSelectedVideos) : [];
+  }
+  );
 
   // Function to handle changes in the search input
   const handleChange = (event) => {
@@ -17,23 +23,22 @@ function YoutubeAPI() {
   const handleCheckboxChange = (videoId) => {
     // Check if the videoId is already selected
     const index = selectedVideos.indexOf(videoId);
+    let updatedSelectedVideos = [];
     if (index === -1) {
       // Add the videoId to selectedVideos if not already selected
-      setSelectedVideos([...selectedVideos, videoId]);
+      updatedSelectedVideos = [...selectedVideos, videoId];
     } else {
       // Remove the videoId from selectedVideos if already selected
       // Creates a copy of the selectedVideos array using the spread operator 
       // Ensures that the original selectedVideos array is not modified directly
-      const updatedSelectedVideos = [...selectedVideos];
-      // splice() modifies an array by removing or replacing existing elements and/or adding new elements.
-      // index parameter specifies the index at which to start removing elements,
-      // and the 1 parameter indicates how many elements to remove.
-      // So, removes one element from the updatedSelectedVideos array at the specified index (index), 
-      // effectively removing the selected video from the list.
-      updatedSelectedVideos.splice(index, 1);
-      // Updates the state to reflect the removal of the selected video from the list.
-      setSelectedVideos(updatedSelectedVideos);
+      updatedSelectedVideos = selectedVideos.filter(id => id !== videoId);
     }
+
+    // Update the state with the new selected videos
+    setSelectedVideos(updatedSelectedVideos);
+    // Save updatedSelectedVideos to local storage
+    localStorage.setItem('selectedVideos', JSON.stringify(updatedSelectedVideos));
+    
   };
 
 useEffect(() => {
