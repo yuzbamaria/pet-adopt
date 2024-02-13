@@ -5,7 +5,7 @@ import { Avatar } from "@mui/material";
 import { useProfileContext, useProfileUpdateContext  } from "../ProfileContext";
 
 function Header() {
-    const loggedIn = useProfileContext();
+    const { loggedIn } = useProfileContext();
     const toggleLogin = useProfileUpdateContext();
 
     return (
