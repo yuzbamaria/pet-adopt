@@ -15,7 +15,7 @@ const SkillNameInput = () => {
         if (trimmedSkillName) {
           // Save the skillName to local storage
           localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
-          addSkillToUser(userDB.currentUser, trimmedSkillName);
+          addSkillToUser(trimmedSkillName, userDB.currentUser);
 
           // Clear the input field after saving
           setSkillName('');
