@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { callBookAPI, setSearchQuery } from "../../utils/api"
-import BookResult from "../BookResult";
-// import { bookInfo } from "../../utils/api";
 
 function BookAPI(){
     const [searchTerm, setSearchTerm] = useState("");
@@ -10,7 +8,6 @@ function BookAPI(){
 
     function handleChange(query){
         setSearchTerm(query);
-        console.log(searchTerm);
     }
 
     function searchBooks(){
@@ -30,7 +27,7 @@ function BookAPI(){
                 onChange={(e)=>handleChange(e.target.value)}
                 placeholder="Search Books"
             />
-            <button className='btn btn-warning shadow m-2' onClick={searchBooks}>Search</button>
+            <button className='btn btn-warning shadow m-2' onClick={()=>searchBooks()}>Search</button>
         </div>
         {/* List of books */}
         <ul id="book-list">
