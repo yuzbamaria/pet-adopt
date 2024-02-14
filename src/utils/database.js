@@ -34,7 +34,7 @@ const addStartDate = (date) => {
     if (!userDB.userAccounts[currentUser]["startDate"]) {
         userDB.userAccounts[currentUser]["startDate"] = []; 
     }
-    userDB.userAccounts[currentUser]["startDate"].push([date]);
+    userDB.userAccounts[currentUser]["startDate"].push(date);
     setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
@@ -46,7 +46,7 @@ const addFinishDate = (date) => {
     if (!userDB.userAccounts[currentUser]["finishDate"]) {
         userDB.userAccounts[currentUser]["finishDate"] = []; 
     }
-    userDB.userAccounts[currentUser]["finishDate"].push([date]);
+    userDB.userAccounts[currentUser]["finishDate"].push(date);
     setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
