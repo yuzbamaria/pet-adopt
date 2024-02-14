@@ -5,6 +5,9 @@ let limit = 10;
 let apiUrl = ""
 let apiResponse = {}
 
+let bookInfo = [
+]
+
 const setSearchQuery = (query)=>{
   // let keywords = "Javascript React"
   query = query.replace(" ", "+");
@@ -23,11 +26,22 @@ function callBookAPI(){
     })
     .then(data => {
       apiResponse = data;
-      console.log(apiResponse);
+      for(let i=0; i<apiResponse.docs.length; i++){
+        let book = {
+          title:"",
+          author:"",
+          url:"",
+        }
+        book.title = apiResponse.docs[i].title
+        book.author = apiResponse.docs[i].author_name.length>1 ? apiResponse.docs[i].author_name.join(", ") : apiResponse.docs[i].author_name[0]
+        book.url = `https://openlibrary.org${apiResponse.docs[i].key}`
+        bookInfo.push(book);
+      }
+      console.log(bookInfo);
     })
     .catch(error => {
       console.error('There was a problem with your fetch operation:', error);
     });
 }
 
-  export {apiResponse, callBookAPI, setSearchQuery }
+export {apiResponse, callBookAPI, setSearchQuery }

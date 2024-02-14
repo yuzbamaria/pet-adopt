@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import {apiResponse, callBookAPI, setSearchQuery} from "../../utils/api"
+import BookResult from "../BookResult";
 
 function BookAPI(){
-    const [searchTerm, setSearchTerm] = useState();
+    const [searchTerm, setSearchTerm] = useState("");
 
     function handleChange(e){
         setSearchTerm(e);
@@ -29,7 +30,8 @@ function BookAPI(){
         <button className='btn btn-warning shadow m-2' onClick={searchBooks}>Search</button>
       </div>
       {/* List of books */}
-      <ul>
+      <ul id="book-list">
+        <BookResult />
       </ul>
     </div>
     </>)

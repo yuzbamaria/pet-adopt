@@ -26,8 +26,6 @@ const SkillNameInput = () => {
           // Show error message if input is empty
           setIsEmptyError(true);
         }
-        
-        
     };
 
     const handleChange = (event) => {
