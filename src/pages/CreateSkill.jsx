@@ -4,7 +4,7 @@ import SkillNameInput from "../components/SkillNameInput";
 import YoutubeAPIResult from "../components/YoutubeAPIResult";
 import ToDoList from "../components/ToDoList";
 import "./css/CreateSkill.css"
-// import BookAPI from "../components/BookAPI";
+import BookAPI from "../components/BookAPI";
 
 function CreateSkill() {
     return(<div>
@@ -28,7 +28,7 @@ function CreateSkill() {
                             <h2 className="card-title text-center">
                                 Add books
                             </h2>
-                            {/* <BookAPI /> */}
+                            <BookAPI />
                         </div>
                     </div>
                 </div>
