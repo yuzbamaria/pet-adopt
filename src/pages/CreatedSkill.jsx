@@ -9,27 +9,31 @@ const SkillPage = () => {
     const currentUserDetails = userDB.userAccounts[currentUser];
 
     // Extract relevant information
-    const { skills, startDate, finishDate, videos, toDoItems } = currentUserDetails;
+    const { skills } = currentUserDetails;
+
+    const { /* startDate, finishDate, */ videos, toDoItems } = skills[currentUser];
+
+    console.log(skills)
 
     return (
         <div>
             <h1>Welcome, {currentUser}!</h1>
             <h2>Your Skills:</h2>
             <ul>
-                {skills.map((skill, index) => (
+                {Object.keys(skills).map((skill, index) => (
                     <li key={index}>{skill}</li>
                 ))}
             </ul>
             <h2>Start Dates:</h2>
             <ul>
-                {startDate.map((date, index) => (
-                    <li key={index}>{date}</li>
+                {Object.keys(skills).map((date, index) => (
+                    <li key={index}>{date.startDate}</li>
                 ))}
             </ul>
             <h2>Finish Dates:</h2>
             <ul>
-                {finishDate.map((date, index) => (
-                    <li key={index}>{date}</li>
+                {Object.keys(skills).map((date, index) => (
+                    <li key={index}>{date.finishDate}</li>
                 ))}
             </ul>
             <h2>YouTube Videos:</h2>
