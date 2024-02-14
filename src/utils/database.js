@@ -8,19 +8,19 @@ const userDB = getLocal("skills-tracker") ||
 }
 
 // Adds a skill to the specified user's account in the userDB.
-const addSkillToUser = (skill) => {
+const addSkillToUser = (skill, user) => {
     // console.log(userDB);
     // console.log(userDB.userAccounts); 
     // Initialize skills array if it doesn't exist
-    if (!userDB.userAccounts[currentUser]["skills"]) {
-        userDB.userAccounts[currentUser]["skills"] = []; 
+    if (!userDB.userAccounts[user]["skills"]) {
+        userDB.userAccounts[user]["skills"] = []; 
     }
     // Pushes a new skill to the `skills` array of the specified user.
-    userDB.userAccounts[currentUser]["skills"].push(skill)
+    userDB.userAccounts[user]["skills"].push(skill)
 
     // Saves the updated userDB to local storage.
     setLocal("skills-tracker", userDB);
-    console.log(`Skill "${skill}" added to user ${currentUser}`);
+    console.log(`Skill "${skill}" added to user ${user}`);
 }
 
 const addStartDate = (date) => {

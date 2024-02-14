@@ -10,11 +10,7 @@ function YoutubeAPI() {
   const [videos, setVideos] = useState([]);
   // Initialize selectedVideos state with the value from local storage, 
   // or an empty array if no value is found
-  const [selectedVideos, setSelectedVideos] = useState(() => {
-    const storedSelectedVideos = localStorage.getItem("selectedVideos");
-    return storedSelectedVideos ? JSON.parse(storedSelectedVideos) : [];
-  }
-  );
+  const [selectedVideos, setSelectedVideos] = useState([]); 
 
   // Function to handle changes in the search input
   const handleChange = (event) => {
@@ -36,8 +32,7 @@ function YoutubeAPI() {
     }
 
     // Update the state with the new selected videos
-    setSelectedVideos(updatedSelectedVideos);
-    addYoutubeVideos(userDB.currentUser, updatedSelectedVideos);
+    addYoutubeVideos(updatedSelectedVideos);
     // Resets the videos state, so the user starts with an empty list for each new search (clear the videos array)
     // setVideos([]);
     // Save updatedSelectedVideos to local storage
