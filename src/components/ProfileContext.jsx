@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { currentUser } from "../utils/database";
+import { userDB, setLocal } from "../utils/database";
 
 const ProfileContext = React.createContext();
 const ProfileUpdateContext = React.createContext();
@@ -18,8 +18,13 @@ export function ProfileProvider ({ children }) {
 
     function toggleLoggedIn(){
         setLoggedIn((loggedIn)=>!loggedIn);
-        if(loggedIn) setUser(currentUser)
-        console.log("current user is:", currentUser)
+        if(!loggedIn) {
+            setUser("")
+            //userDB.currentUser = "";
+        }
+        if(loggedIn) setUser(userDB.currentUser)
+        setLocal();
+        console.log("current user is:", userDB.currentUser)
     }
 
     return(

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { addSkillToUser, currentUser } from '../../utils/database'
+import { addSkillToUser, userDB } from '../../utils/database'
+
 
 const SkillNameInput = () => {
     const [skillName, setSkillName] = useState('');
@@ -14,7 +15,8 @@ const SkillNameInput = () => {
         if (trimmedSkillName) {
           // Save the skillName to local storage
           localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
-          addSkillToUser(currentUser, trimmedSkillName);
+          addSkillToUser(userDB.currentUser, trimmedSkillName);
+
           // Clear the input field after saving
           setSkillName('');
           // Set the submitted state to true
@@ -25,8 +27,6 @@ const SkillNameInput = () => {
           // Show error message if input is empty
           setIsEmptyError(true);
         }
-        
-        
     };
 
     const handleChange = (event) => {
