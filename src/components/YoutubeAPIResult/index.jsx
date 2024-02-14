@@ -30,8 +30,9 @@ function YoutubeAPI() {
       // Ensures that the original selectedVideos array is not modified directly
       updatedSelectedVideos = selectedVideos.filter(id => id !== videoId);
     }
-
+    
     // Update the state with the new selected videos
+    setSelectedVideos(updatedSelectedVideos);
     addYoutubeVideos(updatedSelectedVideos, userDB.currentUser);
     // Resets the videos state, so the user starts with an empty list for each new search (clear the videos array)
     // setVideos([]);
@@ -40,11 +41,11 @@ function YoutubeAPI() {
     
   };
 
-useEffect(() => {
-  // Save selected videos to local storage whenever selectedVideos changes
-  localStorage.setItem('selectedVideos', JSON.stringify(selectedVideos));
-  // The dependency array [selectedVideos] specifies that it should only run when the selectedVideos variable changes.
-}, [selectedVideos]);
+// useEffect(() => {
+//   // Save selected videos to local storage whenever selectedVideos changes
+//   localStorage.setItem('selectedVideos', JSON.stringify(selectedVideos));
+//   // The dependency array [selectedVideos] specifies that it should only run when the selectedVideos variable changes.
+// }, [selectedVideos]);
 
 
   // asynchronous function returns a Promise implicitly, and the await keyword can 
