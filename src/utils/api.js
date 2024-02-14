@@ -15,7 +15,7 @@ const setSearchQuery = (query)=>{
 
 function callBookAPI(){
   console.log(apiUrl)
-  fetch(apiUrl)
+  return fetch(apiUrl)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -36,6 +36,7 @@ function callBookAPI(){
         bookInfo.push(book);
       }
       console.log(bookInfo);
+      return bookInfo;
     })
     .catch(error => {
       console.error('There was a problem with your fetch operation:', error);

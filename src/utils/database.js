@@ -1,13 +1,9 @@
-import { bookInfo } from "./api";
-
-// Holds the username of the currently logged-in user.
-let currentUser;
 
 // Nested object that holds user accounts.
-let userDB = {
+const userDB = getLocal("skills-tracker") ||
+{
     currentUser:"",
     // Object to store user accounts (each containing username, password, skills, dates, video links and to-do list).
-
     userAccounts:{}
 }
 
@@ -87,11 +83,11 @@ const createUser = (username, pass)=>{
     }
 }
 
-function getLocal(storageKey="skills-tracker", storageValue=userDB){
+function getLocal(storageKey="skills-tracker"){
     // use this function BEFORE adding new data to userDB. 
     // checks if saved data exists in local storage and loads it to userDB if it exists.
-    storageValue = (localStorage.getItem(storageKey)) ? JSON.parse(localStorage.getItem(storageKey)) : storageValue;
-    return storageValue;
+    return JSON.parse(localStorage.getItem(storageKey));
+   
 }
 
 function setLocal(storageKey, storageValue){
@@ -103,12 +99,12 @@ function setLocal(storageKey, storageValue){
 function signupNewUser (userInput){
     const username = userInput[0];
     const password = userInput[1];
-    userDB = getLocal("skills-tracker", userDB)
+    //userDB = getLocal("skills-tracker", userDB)
     // add user if not in database, else don't change anything
     if (!userDB.userAccounts[username]) {
         createUser(username, password)
         //saveToLocal();
-        currentUser = username;
+        // currentUser = username;
         userDB.currentUser = username;
         setLocal("skills-tracker", userDB);
         console.log("new user signed up!");     
@@ -121,15 +117,20 @@ function signupNewUser (userInput){
         // }
 }
 
+export function logOut(){
+    userDB.currentUser = "";
+    setLocal("skills-tracker", userDB);
+}
+
 function authenticateUser(userInput){
     const username = userInput[0];
     const password = userInput[1];
     console.log(userInput)
-    userDB=getLocal("skills-tracker", userDB);
+    //userDB=getLocal("skills-tracker", userDB);
     console.log(userDB)
     if (userDB.userAccounts[username]["password"] === password){
         console.log("successful login")
-        currentUser = username;
+        // currentUser = username;
         userDB.currentUser = username;
         setLocal("skills-tracker", userDB);
         return true;
@@ -144,4 +145,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {userDB, currentUser, signupNewUser, authenticateUser, addSkillToUser, addStartDate, addFinishDate, addYoutubeVideos, addToDoList, getLocal, setLocal} 
+export {userDB, signupNewUser, authenticateUser, addSkillToUser, addStartDate, addFinishDate, addYoutubeVideos, addToDoList, getLocal, setLocal} 
