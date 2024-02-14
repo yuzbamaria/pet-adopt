@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { addToDoList, currentUser } from '../../utils/database'
 
 function ToDoList() {
     // State for managing the list of to-do items
@@ -32,6 +33,7 @@ const handleSubmit = (event) => {
 
         // Add the new to-do to the todos array using spread syntax
          setTodos([...todos, newTodo]);
+         addToDoList(currentUser, newTodo);
         // Clear the input field by resetting the inputText state to an empty string
         setInputText('');
     }
@@ -50,14 +52,6 @@ const handleCheckboxChange = (id) => {
         return todo;
     }));
 };
-
-// Effect to load todos from local storage when component mounts
-// useEffect(() => {
-//     const storedTodos = JSON.parse(localStorage.getItem("todos"));
-//     if (storedTodos) {
-//         setTodos(storedTodos);
-//     }
-// }, []);
 
 // Effect to save todos to local storage whenever todos change
 useEffect(() => {
@@ -94,7 +88,7 @@ useEffect(() => {
                         onChange={() => handleCheckboxChange(todo.id)}
                     />
                     {/* Display the text of the to-do item */}
-                    <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+                    <span>
                         {todo.text}
                     </span>
                 </li>

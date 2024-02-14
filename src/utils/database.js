@@ -1,25 +1,85 @@
 
+// Holds the username of the currently logged-in user.
 let currentUser;
 
+// Nested object that holds user accounts.
 let userDB = {
+    // Object to store user accounts (each containing username, password, skills, dates, video links and to-do list).
     userAccounts:{}
 }
 
-const addSkillToUser = (username, skill)=>{
+// Adds a skill to the specified user's account in the userDB.
+const addSkillToUser = (username, skill) => {
+    // console.log(userDB);
+    // console.log(userDB.userAccounts); 
+    // Initialize skills array if it doesn't exist
+    if (!userDB.userAccounts[username]["skills"]) {
+        userDB.userAccounts[username]["skills"] = []; 
+    }
+    // Pushes a new skill to the `skills` array of the specified user.
     userDB.userAccounts[username]["skills"].push(skill)
-    //saveToLocal();
+    // Saves the updated userDB to local storage.
     setLocal();
+    console.log(`Skill "${skill}" added to user ${username}`);
 }
 
-const addStartDate = (date)=>{
-    const index = userDB.userAccounts[currentUser]["skills"].length;
-    userDB.userAccounts[currentUser]["skills"][index][0]=date;
+const addStartDate = (username, date) => {
+    console.log("Username:", username);
+    console.log("UserDB:", userDB);
+    // Initialize dates array if it doesn't exist
+    if (!userDB.userAccounts[username]["startDate"]) {
+        userDB.userAccounts[username]["startDate"] = []; 
+    }
+    userDB.userAccounts[username]["startDate"].push([date]);
+    setLocal();
+    console.log(userDB.userAccounts);
 }
 
+const addFinishDate = (username, date) => {
+    console.log("Username:", username);
+    console.log("UserDB:", userDB);
+    // Initialize dates array if it doesn't exist
+    if (!userDB.userAccounts[username]["finishDate"]) {
+        userDB.userAccounts[username]["finishDate"] = []; 
+    }
+    userDB.userAccounts[username]["finishDate"].push([date]);
+    setLocal();
+    console.log(userDB.userAccounts);
+}
+
+const addYoutubeVideos = (username, video) => {
+    // Initialize videos array if it doesn't exist
+    if (!userDB.userAccounts[username]["videos"]) {
+        userDB.userAccounts[username]["videos"] = []; 
+    }
+    userDB.userAccounts[username]["videos"].push([video]);
+    setLocal();
+    console.log(userDB.userAccounts);
+}
+
+const addToDoList = (username, toDoItem) => {
+    // Initialize todolist array if it doesn't exist
+    if (!userDB.userAccounts[username]["toDoItems"]) {
+        userDB.userAccounts[username]["toDoItems"] = []; 
+    }
+    userDB.userAccounts[username]["toDoItems"].push([toDoItem]);
+    setLocal();
+    console.log(userDB.userAccounts);
+}
+
+// Creates a new user account.
 const createUser = (username, pass)=>{
+    // Adds a new user account to `userAccounts`.
     userDB.userAccounts[username]={
+        // Sets the password for the new user account.
         password:pass,
+        // Initializes an empty array for the skills of the new user account.
         skills:[],
+        // Initializes an empty array for the dates of the new user account.
+        startDate: [],
+        finishDate: [],
+        videos: [],
+        toDoItems: [],
     }
 }
 
@@ -77,4 +137,6 @@ function authenticateUser(userInput){
     }
 }
 
-export {currentUser, signupNewUser, authenticateUser, addSkillToUser, addStartDate, getLocal, setLocal} 
+export {currentUser, signupNewUser, authenticateUser, addSkillToUser, addStartDate, addFinishDate, addYoutubeVideos, addToDoList, getLocal, setLocal} 
+
+// addFinishDate, 
