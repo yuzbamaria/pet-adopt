@@ -24,57 +24,57 @@ const addSkillToUser = (skill, user) => {
 
     // Saves the updated userDB to local storage.
     setLocal("skills-tracker", userDB);
-    console.log(`Skill "${skill}" added to user ${userDB.currentUser}`);
+    console.log(`Skill "${skill}" added to user ${user}`);
 }
 
-const addStartDate = (date) => {
+const addStartDate = (date, user) => {
     // console.log("Username:", username);
     // console.log("UserDB:", userDB);
     // Initialize dates array if it doesn't exist
-    if (!userDB.userAccounts[currentUser]["startDate"]) {
-        userDB.userAccounts[currentUser]["startDate"] = []; 
+    if (!userDB.userAccounts[user]["startDate"]) {
+        userDB.userAccounts[user]["startDate"] = []; 
     }
-    userDB.userAccounts[currentUser]["startDate"].push(date);
+    userDB.userAccounts[user]["startDate"].push(date);
     setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
-const addFinishDate = (date) => {
+const addFinishDate = (date, user) => {
     // console.log("Username:", username);
     // console.log("UserDB:", userDB);
     // Initialize dates array if it doesn't exist
-    if (!userDB.userAccounts[currentUser]["finishDate"]) {
-        userDB.userAccounts[currentUser]["finishDate"] = []; 
+    if (!userDB.userAccounts[user]["finishDate"]) {
+        userDB.userAccounts[user]["finishDate"] = []; 
     }
-    userDB.userAccounts[currentUser]["finishDate"].push(date);
+    userDB.userAccounts[user]["finishDate"].push(date);
     setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
-const addYoutubeVideos = (video) => {
+const addYoutubeVideos = (video, user) => {
     // Initialize videos array if it doesn't exist
-    if (!userDB.userAccounts[currentUser]["videos"]) {
-        userDB.userAccounts[currentUser]["videos"] = []; 
+    if (!userDB.userAccounts[user]["videos"]) {
+        userDB.userAccounts[user]["videos"] = []; 
     }
-    userDB.userAccounts[currentUser]["videos"].push([video]);
+    userDB.userAccounts[user]["videos"].push([video]);
     setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
-const addToDoList = (toDoItem) => {
+const addToDoList = (toDoItem, user) => {
     console.log("Adding todo item:", toDoItem);
     // Initialize todolist array if it doesn't exist
-    if (!userDB.userAccounts[currentUser]["toDoItems"]) {
-        userDB.userAccounts[currentUser]["toDoItems"] = []; 
+    if (!userDB.userAccounts[user]["toDoItems"]) {
+        userDB.userAccounts[user]["toDoItems"] = []; 
     }
 
-    console.log("Before push:", userDB.userAccounts[currentUser]["toDoItems"]);
+    console.log("Before push:", userDB.userAccounts[user]["toDoItems"]);
 
-    userDB.userAccounts[currentUser]["toDoItems"].push(toDoItem);
-    console.log("After push:", userDB.userAccounts[currentUser]["toDoItems"]);
+    userDB.userAccounts[user]["toDoItems"].push(toDoItem);
+    console.log("After push:", userDB.userAccounts[user]["toDoItems"]);
 
     setLocal("skills-tracker", userDB);
-    console.log("Updated userDB:", userDB.userAccounts);
+    console.log("Updated userDB:", user);
 }
 
 // Creates a new user account.
@@ -90,8 +90,7 @@ const createUser = (username, pass)=>{
 function getLocal(storageKey="skills-tracker", storageValue=userDB){
     // use this function BEFORE adding new data to userDB. 
     // checks if saved data exists in local storage and loads it to userDB if it exists.
-    storageValue = (localStorage.getItem(storageKey)) ? JSON.parse(localStorage.getItem(storageKey)) : storageValue;
-    return storageValue;
+    return JSON.parse(localStorage.getItem(storageKey));
 }
 
 function setLocal(storageKey, storageValue){
@@ -103,12 +102,9 @@ function setLocal(storageKey, storageValue){
 function signupNewUser (userInput){
     const username = userInput[0];
     const password = userInput[1];
-    userDB = getLocal("skills-tracker", userDB)
     // add user if not in database, else don't change anything
     if (!userDB.userAccounts[username]) {
         createUser(username, password)
-        //saveToLocal();
-        currentUser = username;
         userDB.currentUser = username;
         setLocal("skills-tracker", userDB);
         console.log("new user signed up!");     
@@ -119,6 +115,11 @@ function signupNewUser (userInput){
     // if (userDB["userAccounts"][userInput[0]] === userInput[1]){
         //     // if sign up successful, authenticate login and redirect to successful login
         // }
+}
+
+export function logOut(){
+    userDB.currentUser = "";
+    setLocal("skills-tracker", userDB);
 }
 
 function authenticateUser(userInput){
@@ -144,4 +145,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {userDB, currentUser, signupNewUser, authenticateUser, addSkillToUser, addStartDate, addFinishDate, addYoutubeVideos, addToDoList, getLocal, setLocal} 
+export {userDB, signupNewUser, authenticateUser, addSkillToUser, addStartDate, addFinishDate, addYoutubeVideos, addToDoList, getLocal, setLocal} 
