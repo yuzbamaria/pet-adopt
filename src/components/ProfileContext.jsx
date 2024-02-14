@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { userDB, setLocal } from "../utils/database";
 
 const ProfileContext = React.createContext();
@@ -13,19 +13,23 @@ export function useProfileUpdateContext(){
 }
 
 export function ProfileProvider ({ children }) {
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [user, setUser] = useState("");
+    const [loggedIn, setLoggedIn] = useState(Boolean(userDB.currentUser));
+    const [user, setUser] = useState(userDB.currentUser);
 
     function toggleLoggedIn(){
         setLoggedIn((loggedIn)=>!loggedIn);
-        if(!loggedIn) {
-            setUser("")
-            //userDB.currentUser = "";
-        }
-        if(loggedIn) setUser(userDB.currentUser)
-        setLocal();
+        setUser(userDB.currentUser)
+        setLocal("skills-tracker", userDB);
         console.log("current user is:", userDB.currentUser)
     }
+
+    useEffect(()=>{
+        if(loggedIn){
+            setUser(userDB.currentUser);
+        }else{
+            setUser("");
+        }
+    }, [loggedIn])
 
     return(
         <ProfileContext.Provider value={{loggedIn, user}}>

@@ -2,11 +2,11 @@ import React from "react";
 import { useState } from "react";
 import { callBookAPI, setSearchQuery } from "../../utils/api"
 import BookResult from "../BookResult";
-import { bookInfo } from "../../utils/api";
+// import { bookInfo } from "../../utils/api";
 
 function BookAPI(){
     const [searchTerm, setSearchTerm] = useState("");
-    const [books, setBooks] = useState(bookInfo);
+    const [books, setBooks] = useState([]);
 
     function handleChange(query){
         setSearchTerm(query);
@@ -16,8 +16,10 @@ function BookAPI(){
     function searchBooks(){
         console.log(searchTerm)
         setSearchQuery(searchTerm);
-        callBookAPI();
-        setBooks(bookInfo);
+        callBookAPI()
+        .then((bookInfo)=>{
+            setBooks(bookInfo);
+        })
     }
 
     return(<div>
@@ -33,7 +35,7 @@ function BookAPI(){
         {/* List of books */}
         <ul id="book-list">
             {/* {books.map((book) => ( */}
-            {bookInfo.map((book) => (
+            {books.map((book) => (
             <li key={book.url}>
                 <div>
                     <p>Title: {book.title}</p>
