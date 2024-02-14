@@ -4,9 +4,7 @@ let searchQuery = "";
 let limit = 10;
 let apiUrl = ""
 let apiResponse = {}
-
-let bookInfo = [
-]
+let bookInfo = []
 
 const setSearchQuery = (query)=>{
   // let keywords = "Javascript React"
@@ -44,4 +42,4 @@ function callBookAPI(){
     });
 }
 
-export {apiResponse, callBookAPI, setSearchQuery }
+export { bookInfo, callBookAPI, setSearchQuery }

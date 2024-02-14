@@ -1,3 +1,4 @@
+import { bookInfo } from "./api";
 
 let currentUser;
 
@@ -9,7 +10,7 @@ let userDB = {
 const addSkillToUser = (username, skill)=>{
     userDB.userAccounts[username]["skills"].push(skill)
     //saveToLocal();
-    setLocal();
+    setLocal("skills-tracker", userDB);
 }
 
 const addStartDate = (date)=>{
@@ -31,7 +32,7 @@ function getLocal(storageKey="skills-tracker", storageValue=userDB){
     return storageValue;
 }
 
-function setLocal(storageKey="skills-tracker", storageValue=userDB){
+function setLocal(storageKey, storageValue){
     // use this function AFTER adding new data to userDB.
     // saves all objects nested in userDB to localStorage.
     localStorage.setItem(storageKey, JSON.stringify(storageValue));
@@ -47,7 +48,7 @@ function signupNewUser (userInput){
         //saveToLocal();
         currentUser = username;
         userDB.currentUser = username;
-        setLocal();
+        setLocal("skills-tracker", userDB);
         console.log("new user signed up!");     
         return true;
     }
@@ -68,7 +69,7 @@ function authenticateUser(userInput){
         console.log("successful login")
         currentUser = username;
         userDB.currentUser = username;
-        setLocal();
+        setLocal("skills-tracker", userDB);
         return true;
     }
     else if (userDB.userAccounts[username] && userDB.userAccounts[username]["password"] !== password){
@@ -81,4 +82,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {userDB, signupNewUser, authenticateUser, addSkillToUser, addStartDate, getLocal, setLocal} 
+export {userDB, signupNewUser, authenticateUser, addSkillToUser, /* addStartDate, */ getLocal, setLocal} 

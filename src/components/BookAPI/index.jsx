@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import {apiResponse, callBookAPI, setSearchQuery} from "../../utils/api"
+import { callBookAPI, setSearchQuery } from "../../utils/api"
 import BookResult from "../BookResult";
+import { bookInfo } from "../../utils/api";
 
 function BookAPI(){
     const [searchTerm, setSearchTerm] = useState("");
 
-    function handleChange(e){
-        setSearchTerm(e);
+    function handleChange(query){
+        setSearchTerm(query);
         console.log(searchTerm);
     }
 
@@ -22,16 +23,21 @@ function BookAPI(){
       <div>
         <input
           type="text"
-          value={searchTerm} // Value of the input field is controlled by the 'searchTerm' state
-          onChange={(e)=>handleChange(e.target.value)} // When the input changes, the 'handleChange' function is called
-          placeholder="Search Books"  // Placeholder text for the input field
+          value={searchTerm}
+          onChange={(e)=>handleChange(e.target.value)}
+          placeholder="Search Books"
         />
-        {/* Button triggers the 'searchVideos' function when clicked */}
         <button className='btn btn-warning shadow m-2' onClick={searchBooks}>Search</button>
       </div>
       {/* List of books */}
       <ul id="book-list">
-        <BookResult />
+        {bookInfo.map((book) => (
+        <li key={book.url}>
+          <p>Title: {book.title}</p>
+          <p>Author(s): {book.authpr}</p>
+          <a href={book.url}>web-link</a>
+        </li>
+      ))}
       </ul>
     </div>
     </>)
