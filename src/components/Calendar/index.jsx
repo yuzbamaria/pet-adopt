@@ -12,19 +12,19 @@ const Calendar = () => {
         const [finishDate, setFinishDate] = useState(new Date());
 
         const handleStartDateChange = (date) => {
-            // date = date.toLocaleDateString();
+            const formattedDate = date.toLocaleDateString();
             setStartDate(date);
             // addStartDate(date);
-            addStartDate(date, userDB.currentUser);
+            addStartDate(formattedDate, userDB.currentUser);
 
         };
 
         const handleFinishDateChange = (date) => {
-            // date = date.toLocaleDateString();
+            const formattedDate = date.toLocaleDateString()
             setFinishDate(date);
             // addFinishDate(userDB.currentUser, date);
             // localStorage.setItem("finishDate", date);
-            addFinishDate(date, userDB.currentUser);
+            addFinishDate(formattedDate, userDB.currentUser);
         };
     
     return (

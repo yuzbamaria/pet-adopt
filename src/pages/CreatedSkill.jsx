@@ -1,55 +1,62 @@
+import React from "react";
+import { userDB } from "../utils/database";
 
-import React, { useEffect, useState } from "react";
-import { getLocal, userDB } from "../utils/database";
+const SkillPage = () => {
+    // Get the current user's username
+    const currentUser = userDB.currentUser;
+ 
+    // Get the current user's account details
+    const currentUserDetails = userDB.userAccounts[currentUser];
 
-const CreatedSkill = () => {
-    const [userData, setUserData] = useState(null);
-
-    useEffect(() => {
-        // Retrieve user data from local storage based on the currentUser
-        const userData = getLocal("skills-tracker")[userDB.currentUser];
-        setUserData(userData);
-    }, []);
+    // Extract relevant information
+    const { skills, startDate, finishDate, videos, toDoItems } = currentUserDetails;
 
     return (
         <div>
-            <h2>User: {userDB.currentUser}</h2>
-            {userData && (
-                <div>
-                    <h3>Skills:</h3>
-                    <ul>
-                        {userData.skills.map((skill, index) => (
-                            <li key={index}>{skill}</li>
-                        ))}
-                    </ul>
-                    <h3>Start Dates:</h3>
-                    <ul>
-                        {userData.startDate.map((date, index) => (
-                            <li key={index}>{date}</li>
-                        ))}
-                    </ul>
-                    <h3>Finish Dates:</h3>
-                    <ul>
-                        {userData.finishDate.map((date, index) => (
-                            <li key={index}>{date}</li>
-                        ))}
-                    </ul>
-                    <h3>YouTube Videos:</h3>
-                    <ul>
-                        {userData.videos.map((video, index) => (
-                            <li key={index}>{video}</li>
-                        ))}
-                    </ul>
-                    <h3>To Do List:</h3>
-                    <ul>
-                        {userData.toDoItems.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+            <h1>Welcome, {currentUser}!</h1>
+            <h2>Your Skills:</h2>
+            <ul>
+                {skills.map((skill, index) => (
+                    <li key={index}>{skill}</li>
+                ))}
+            </ul>
+            <h2>Start Dates:</h2>
+            <ul>
+                {startDate.map((date, index) => (
+                    <li key={index}>{date}</li>
+                ))}
+            </ul>
+            <h2>Finish Dates:</h2>
+            <ul>
+                {finishDate.map((date, index) => (
+                    <li key={index}>{date}</li>
+                ))}
+            </ul>
+            <h2>YouTube Videos:</h2>
+            <ul>
+            {videos.map((video, index) => (
+    <li key={index}>
+        {/* Add this line for debugging */}
+        {console.log("Video:", video)}
+        <a 
+            href={`https://www.youtube.com/watch?v=${video.link}`} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            title={video.title} 
+        >
+            {video.title}
+        </a>
+    </li>
+))}
+            </ul>
+            <h2>To-Do List:</h2>
+            <ul>
+            {toDoItems.map((item, index) => (
+    <li key={index}>{item.text}</li> 
+))}
+            </ul>
         </div>
     );
-}
+};
 
-export default CreatedSkill;
+export default SkillPage;
