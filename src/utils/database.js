@@ -12,63 +12,69 @@ let userDB = {
 }
 
 // Adds a skill to the specified user's account in the userDB.
-const addSkillToUser = (username, skill) => {
+const addSkillToUser = (skill) => {
     // console.log(userDB);
     // console.log(userDB.userAccounts); 
     // Initialize skills array if it doesn't exist
-    if (!userDB.userAccounts[username]["skills"]) {
-        userDB.userAccounts[username]["skills"] = []; 
+    if (!userDB.userAccounts[currentUser]["skills"]) {
+        userDB.userAccounts[currentUser]["skills"] = []; 
     }
     // Pushes a new skill to the `skills` array of the specified user.
-    userDB.userAccounts[username]["skills"].push(skill)
+    userDB.userAccounts[currentUser]["skills"].push(skill)
 
     // Saves the updated userDB to local storage.
     setLocal("skills-tracker", userDB);
-    console.log(`Skill "${skill}" added to user ${username}`);
+    console.log(`Skill "${skill}" added to user ${currentUser}`);
 }
 
-const addStartDate = (username, date) => {
-    console.log("Username:", username);
-    console.log("UserDB:", userDB);
+const addStartDate = (date) => {
+    // console.log("Username:", username);
+    // console.log("UserDB:", userDB);
     // Initialize dates array if it doesn't exist
-    if (!userDB.userAccounts[username]["startDate"]) {
-        userDB.userAccounts[username]["startDate"] = []; 
+    if (!userDB.userAccounts[currentUser]["startDate"]) {
+        userDB.userAccounts[currentUser]["startDate"] = []; 
     }
-    userDB.userAccounts[username]["startDate"].push([date]);
-    setLocal();
+    userDB.userAccounts[currentUser]["startDate"].push([date]);
+    setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
-const addFinishDate = (username, date) => {
-    console.log("Username:", username);
-    console.log("UserDB:", userDB);
+const addFinishDate = (date) => {
+    // console.log("Username:", username);
+    // console.log("UserDB:", userDB);
     // Initialize dates array if it doesn't exist
-    if (!userDB.userAccounts[username]["finishDate"]) {
-        userDB.userAccounts[username]["finishDate"] = []; 
+    if (!userDB.userAccounts[currentUser]["finishDate"]) {
+        userDB.userAccounts[currentUser]["finishDate"] = []; 
     }
-    userDB.userAccounts[username]["finishDate"].push([date]);
-    setLocal();
+    userDB.userAccounts[currentUser]["finishDate"].push([date]);
+    setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
-const addYoutubeVideos = (username, video) => {
+const addYoutubeVideos = (video) => {
     // Initialize videos array if it doesn't exist
-    if (!userDB.userAccounts[username]["videos"]) {
-        userDB.userAccounts[username]["videos"] = []; 
+    if (!userDB.userAccounts[currentUser]["videos"]) {
+        userDB.userAccounts[currentUser]["videos"] = []; 
     }
-    userDB.userAccounts[username]["videos"].push([video]);
-    setLocal();
+    userDB.userAccounts[currentUser]["videos"].push([video]);
+    setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
-const addToDoList = (username, toDoItem) => {
+const addToDoList = (toDoItem) => {
+    console.log("Adding todo item:", toDoItem);
     // Initialize todolist array if it doesn't exist
-    if (!userDB.userAccounts[username]["toDoItems"]) {
-        userDB.userAccounts[username]["toDoItems"] = []; 
+    if (!userDB.userAccounts[currentUser]["toDoItems"]) {
+        userDB.userAccounts[currentUser]["toDoItems"] = []; 
     }
-    userDB.userAccounts[username]["toDoItems"].push([toDoItem]);
-    setLocal();
-    console.log(userDB.userAccounts);
+
+    console.log("Before push:", userDB.userAccounts[currentUser]["toDoItems"]);
+
+    userDB.userAccounts[currentUser]["toDoItems"].push(toDoItem);
+    console.log("After push:", userDB.userAccounts[currentUser]["toDoItems"]);
+
+    setLocal("skills-tracker", userDB);
+    console.log("Updated userDB:", userDB.userAccounts);
 }
 
 // Creates a new user account.
@@ -78,12 +84,6 @@ const createUser = (username, pass)=>{
         // Sets the password for the new user account.
         password:pass,
         // Initializes an empty array for the skills of the new user account.
-        skills:[],
-        // Initializes an empty array for the dates of the new user account.
-        startDate: [],
-        finishDate: [],
-        videos: [],
-        toDoItems: [],
     }
 }
 
