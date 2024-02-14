@@ -3,7 +3,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addStartDate, addFinishDate, userDB } from "../../utils/database";
 
-
 const Calendar = () => {
     
         const startDateRef = useRef(null);
@@ -16,15 +15,16 @@ const Calendar = () => {
             // date = date.toLocaleDateString();
             setStartDate(date);
             // addStartDate(date);
-            localStorage.setItem("startDate", date);
+            addStartDate(date);
 
         };
 
         const handleFinishDateChange = (date) => {
             // date = date.toLocaleDateString();
             setFinishDate(date);
-            addFinishDate(userDB.currentUser, date);
-            localStorage.setItem("finishDate", date);
+            // addFinishDate(userDB.currentUser, date);
+            // localStorage.setItem("finishDate", date);
+            addFinishDate(date);
         };
     
     return (
