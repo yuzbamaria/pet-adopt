@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
 import { addSkillToUser, currentUser } from '../../utils/database'
 
 const SkillNameInput = () => {
@@ -14,7 +13,7 @@ const SkillNameInput = () => {
         // Check if the skillName is not empty
         if (trimmedSkillName) {
           // Save the skillName to local storage
-          // localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
+          localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
           addSkillToUser(currentUser, trimmedSkillName);
           // Clear the input field after saving
           setSkillName('');
@@ -52,7 +51,7 @@ const SkillNameInput = () => {
                 value={skillName}
                 onChange={handleChange}
                 />
-                <button className='btn btn-primary shadow m-2' type="submit" disabled={!skillName.trim()}>Submit</button>
+                <button className='btn btn-warning shadow m-2 pr-3 pl-3' type="submit">Save</button>
             </div>
           </form>
           {/* Display error message if input is empty */}
