@@ -3,11 +3,7 @@ import { addToDoList, currentUser } from '../../utils/database'
 
 function ToDoList() {
     // State for managing the list of to-do items
-    // An empty array to store todo items 
-    const [todos, setTodos] = useState(() => {
-        const storedTodos = localStorage.getItem("todos");
-        return storedTodos ? JSON.parse(storedTodos) : [];
-    });
+    const [todos, setTodos] = useState([]);
     // State for managing the text input value
     const [inputText, setInputText] = useState('');
 
@@ -33,7 +29,7 @@ const handleSubmit = (event) => {
 
         // Add the new to-do to the todos array using spread syntax
          setTodos([...todos, newTodo]);
-         addToDoList(currentUser, newTodo);
+         addToDoList(newTodo);
         // Clear the input field by resetting the inputText state to an empty string
         setInputText('');
     }
