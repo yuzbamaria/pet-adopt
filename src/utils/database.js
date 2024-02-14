@@ -2,6 +2,7 @@
 let currentUser;
 
 let userDB = {
+    currentUser:"",
     userAccounts:{}
 }
 
@@ -44,8 +45,9 @@ function signupNewUser (userInput){
     if (!userDB.userAccounts[username]) {
         createUser(username, password)
         //saveToLocal();
-        setLocal();
         currentUser = username;
+        userDB.currentUser = username;
+        setLocal();
         console.log("new user signed up!");     
         return true;
     }
@@ -65,6 +67,8 @@ function authenticateUser(userInput){
     if (userDB.userAccounts[username]["password"] === password){
         console.log("successful login")
         currentUser = username;
+        userDB.currentUser = username;
+        setLocal();
         return true;
     }
     else if (userDB.userAccounts[username] && userDB.userAccounts[username]["password"] !== password){
@@ -77,4 +81,4 @@ function authenticateUser(userInput){
     }
 }
 
-export {currentUser, signupNewUser, authenticateUser, addSkillToUser, addStartDate, getLocal, setLocal} 
+export {userDB, signupNewUser, authenticateUser, addSkillToUser, addStartDate, getLocal, setLocal} 
