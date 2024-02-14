@@ -15,7 +15,7 @@ const Calendar = () => {
             // date = date.toLocaleDateString();
             setStartDate(date);
             // addStartDate(date);
-            addStartDate(date);
+            addStartDate(date, userDB.currentUser);
 
         };
 
@@ -24,7 +24,7 @@ const Calendar = () => {
             setFinishDate(date);
             // addFinishDate(userDB.currentUser, date);
             // localStorage.setItem("finishDate", date);
-            addFinishDate(date);
+            addFinishDate(date, userDB.currentUser);
         };
     
     return (

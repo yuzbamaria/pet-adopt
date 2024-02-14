@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.css'; 
-import { addYoutubeVideos } from '../../utils/database'
+import { addYoutubeVideos, userDB } from '../../utils/database'
 
 function YoutubeAPI() {
   // (State) Creating a hook for the search term
@@ -32,7 +32,7 @@ function YoutubeAPI() {
     }
 
     // Update the state with the new selected videos
-    addYoutubeVideos(updatedSelectedVideos);
+    addYoutubeVideos(updatedSelectedVideos, userDB.currentUser);
     // Resets the videos state, so the user starts with an empty list for each new search (clear the videos array)
     // setVideos([]);
     // Save updatedSelectedVideos to local storage

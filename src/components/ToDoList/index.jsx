@@ -30,7 +30,7 @@ const handleSubmit = (event) => {
         // Add the new to-do to the todos array using spread syntax
          setTodos([...todos, newTodo]);
          // addToDoList(userDB.currentUser, newTodo);
-         addToDoList(newTodo);
+         addToDoList(newTodo, userDB.currentUser);
         // Clear the input field by resetting the inputText state to an empty string
         setInputText('');
     }
