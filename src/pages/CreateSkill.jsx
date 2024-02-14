@@ -3,8 +3,10 @@ import Calendar from "../components/Calendar";
 import SkillNameInput from "../components/SkillNameInput";
 import YoutubeAPIResult from "../components/YoutubeAPIResult";
 import ToDoList from "../components/ToDoList";
+import { useNavigate } from 'react-router-dom';
 
 function CreateSkill() {
+    const navigate = useNavigate();
     return(<div>
         <div className="container">
             <div className="row justify-content-center">
@@ -18,6 +20,7 @@ function CreateSkill() {
                             <Calendar />
                             <YoutubeAPIResult />
                             <ToDoList />
+                            <button onClick={()=> navigate("/CreatedSkill")}>Submit</button>
                         </div>
                     </div>
                 </div>
