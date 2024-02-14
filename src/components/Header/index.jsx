@@ -3,10 +3,15 @@ import "./style.css"
 import { Link, NavLink } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import { useProfileContext, useProfileUpdateContext  } from "../ProfileContext";
+import { logOut } from "../../utils/database";
 
 function Header() {
     const { loggedIn } = useProfileContext();
     const toggleLogin = useProfileUpdateContext();
+    function handleLogOut (){
+        toggleLogin();
+        logOut();
+    }
 
     return (
     <>
@@ -29,7 +34,7 @@ function Header() {
                         >
                         Add a skill
                         </NavLink> 
-                        <Link className="logout" to="/" onClick={toggleLogin}>
+                        <Link className="logout" to="/" onClick={handleLogOut}>
                             Logout
                         </Link>
                         <Link className="profile" to="/userprofile">

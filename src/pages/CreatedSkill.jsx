@@ -1,19 +1,19 @@
 
 import React, { useEffect, useState } from "react";
-import { getLocal, currentUser } from "../utils/database";
+import { getLocal, userDB } from "../utils/database";
 
 const CreatedSkill = () => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
         // Retrieve user data from local storage based on the currentUser
-        const userData = getLocal("skills-tracker")[currentUser];
+        const userData = getLocal("skills-tracker")[userDB.currentUser];
         setUserData(userData);
     }, []);
 
     return (
         <div>
-            <h2>User: {currentUser}</h2>
+            <h2>User: {userDB.currentUser}</h2>
             {userData && (
                 <div>
                     <h3>Skills:</h3>
