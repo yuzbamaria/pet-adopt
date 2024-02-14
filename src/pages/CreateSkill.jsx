@@ -5,8 +5,10 @@ import YoutubeAPIResult from "../components/YoutubeAPIResult";
 import ToDoList from "../components/ToDoList";
 import "./css/CreateSkill.css"
 import BookAPI from "../components/BookAPI";
+import { useNavigate } from 'react-router-dom';
 
 function CreateSkill() {
+    const navigate = useNavigate();
     return(<div>
         <div className="container d-flex align-items-center flex-column">
             <div className="row">
@@ -52,6 +54,7 @@ function CreateSkill() {
                                 To-Do lis
                             </h2> */}
                             <ToDoList />
+                            <button onClick={()=> navigate("/CreatedSkill")}>Submit</button>
                         </div>
                     </div>
                 </div>
