@@ -8,7 +8,20 @@ import BookAPI from "../components/BookAPI";
 
 function CreateSkill() {
     return(<div>
-        <div className="container d-flex justify-content-center">
+        <div className="container d-flex align-items-center flex-column">
+            <div className="row">
+                <div className="col">
+                    <div className="card skill-card skill-name">
+                        <div className="card-body d-flex align-items-center flex-column">
+                            <h2 className="card-title text-center">
+                                Enter skill name
+                            </h2>
+                            <SkillNameInput />
+                            <Calendar />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="row">
                 <div className="col">
                     <div className="card skill-card">
@@ -16,8 +29,6 @@ function CreateSkill() {
                             <h2 className="card-title text-center">
                                 Add YouTube tutorials
                             </h2>
-                            <SkillNameInput />
-                            <Calendar />
                             <YoutubeAPIResult />
                         </div>
                     </div>
