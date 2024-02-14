@@ -63,10 +63,11 @@ function ToDoList() {
         
     };
 
-// Effect to save todos to local storage whenever todos change
-/* useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-}, [todos]); */
+
+// useEffect(() => {
+//     localStorage.setItem("todos", JSON.stringify(todos));
+// }, [todos]);
+
 
  // Render the TodoList component
  return (
