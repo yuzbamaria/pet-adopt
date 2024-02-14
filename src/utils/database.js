@@ -13,64 +13,96 @@ const addSkillToUser = (skill, user) => {
     // console.log(userDB.userAccounts); 
     // Initialize skills array if it doesn't exist
     if (!userDB.userAccounts[user]["skills"]) {
-        userDB.userAccounts[user]["skills"] = []; 
+        userDB.userAccounts[user]["skills"] = {}; 
     }
     // Pushes a new skill to the `skills` array of the specified user.
-    userDB.userAccounts[user]["skills"].push(skill)
+    userDB.userAccounts[user]["skills"][skill] = {};
 
     // Saves the updated userDB to local storage.
     setLocal("skills-tracker", userDB);
     console.log(`Skill "${skill}" added to user ${user}`);
 }
 
+function getCurrentSkill(user){
+    
+    if(userDB.userAccounts[user]["skills"])
+    {
+        const skills = userDB.userAccounts[user]["skills"];
+        const index = Object.keys(skills).length;
+        const lastKey = Object.keys(skills)[index-1];
+        console.log(index)
+        console.log(lastKey)
+        return lastKey;
+    }else {
+        throw new Error("You need to create a skill first!")
+    }
+}
+
 const addStartDate = (date, user) => {
+    const skill = getCurrentSkill(user);
+    if (!skill) throw new Error("Create a skill!")
     // console.log("Username:", username);
     // console.log("UserDB:", userDB);
     // Initialize dates array if it doesn't exist
-    if (!userDB.userAccounts[user]["startDate"]) {
-        userDB.userAccounts[user]["startDate"] = []; 
+    if (!userDB.userAccounts[user]["skills"][skill]["startDate"]) {
+        userDB.userAccounts[user]["skills"][skill]["startDate"] = []; 
     }
-    userDB.userAccounts[user]["startDate"].push(date);
+    userDB.userAccounts[user]["skills"][skill]["startDate"]=date;
     setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
 const addFinishDate = (date, user) => {
+    const skill = getCurrentSkill(user);
+    if (!skill) throw new Error("Create a skill!")
     // console.log("Username:", username);
     // console.log("UserDB:", userDB);
     // Initialize dates array if it doesn't exist
-    if (!userDB.userAccounts[user]["finishDate"]) {
-        userDB.userAccounts[user]["finishDate"] = []; 
+    if (!userDB.userAccounts[user]["skills"][skill]["finishDate"]) {
+        userDB.userAccounts[user]["skills"][skill]["finishDate"] = []; 
     }
-    userDB.userAccounts[user]["finishDate"].push(date);
+    userDB.userAccounts[user]["skills"][skill]["finishDate"]=date;
     setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
 const addYoutubeVideos = (video, user) => {
+    const skill = getCurrentSkill(user);
+    if (!skill) throw new Error("Create a skill!")
     // Initialize videos array if it doesn't exist
-    if (!userDB.userAccounts[user]["videos"]) {
-        userDB.userAccounts[user]["videos"] = []; 
+    if (!userDB.userAccounts[user]["skills"][skill]["videos"]) {
+        userDB.userAccounts[user]["skills"][skill]["videos"] = []; 
     }
-    userDB.userAccounts[user]["videos"].push([video]);
+    userDB.userAccounts[user]["skills"][skill]["videos"]=[...video];
     setLocal("skills-tracker", userDB);
     console.log(userDB.userAccounts);
 }
 
 const addToDoList = (toDoItem, user) => {
+    const skill = getCurrentSkill(user);
+    if (!skill) throw new Error("Create a skill!")
     console.log("Adding todo item:", toDoItem);
     // Initialize todolist array if it doesn't exist
-    if (!userDB.userAccounts[user]["toDoItems"]) {
-        userDB.userAccounts[user]["toDoItems"] = []; 
+    if (!userDB.userAccounts[user]["skills"][skill]["toDoItems"]) {
+        userDB.userAccounts[user]["skills"][skill]["toDoItems"] = []; 
     }
 
-    console.log("Before push:", userDB.userAccounts[user]["toDoItems"]);
+    console.log("Before push:", userDB.userAccounts[user]["skills"]["toDoItems"]);
 
-    userDB.userAccounts[user]["toDoItems"].push(toDoItem);
-    console.log("After push:", userDB.userAccounts[user]["toDoItems"]);
+    userDB.userAccounts[user]["skills"][skill]["toDoItems"].push(toDoItem);
+    console.log("After push:", userDB.userAccounts[user]["skills"][skill]["toDoItems"]);
 
     setLocal("skills-tracker", userDB);
     console.log("Updated userDB:", userDB.userAccounts);
+}
+
+export function toDoCompleted(updated, user){
+    const skill = getCurrentSkill(user);
+    if (!skill) throw new Error("Create a skill!")
+    const todo = userDB.userAccounts[user]["skills"][skill]["toDoItems"];
+    const index = todo.length;
+    todo[index-1].completed = updated.completed;
+    setLocal("skills-tracker", userDB);
 }
 
 // Creates a new user account.
@@ -80,12 +112,12 @@ const createUser = (username, pass)=>{
         // Sets the password for the new user account.
         password:pass,
         // Initializes an empty array for the skills of the new user account.
-        skills:[],
+        // skills:{},
         // Initializes an empty array for the dates of the new user account.
-        startDate: [],
-        finishDate: [],
-        videos: [],
-        toDoItems: [],
+        // startDate: [],
+        // finishDate: [],
+        // videos: [],
+        // toDoItems: [],
     }
 }
 

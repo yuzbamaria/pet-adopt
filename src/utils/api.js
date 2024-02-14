@@ -30,8 +30,9 @@ function callBookAPI(){
           author:"",
           url:"",
         }
+        console.log(apiResponse)
         book.title = apiResponse.docs[i].title
-        book.author = apiResponse.docs[i].author_name.length>1 ? apiResponse.docs[i].author_name.join(", ") : apiResponse.docs[i].author_name[0]
+        book.author = apiResponse.docs[i].author_name && apiResponse.docs[i].author_name.length>0 ? apiResponse.docs[i].author_name.join(", ") : "n/a"
         book.url = `https://openlibrary.org${apiResponse.docs[i].key}`
         bookInfo.push(book);
       }

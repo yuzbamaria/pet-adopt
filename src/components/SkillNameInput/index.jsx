@@ -14,7 +14,7 @@ const SkillNameInput = () => {
         // Check if the skillName is not empty
         if (trimmedSkillName) {
           // Save the skillName to local storage
-          localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
+          // localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
           addSkillToUser(trimmedSkillName, userDB.currentUser);
 
           // Clear the input field after saving
