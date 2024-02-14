@@ -66,7 +66,7 @@ useEffect(() => {
 
  // Render the TodoList component
  return (
-    <div>
+    <div className='d-flex align-items-center flex-column'>
         {/* Heading for the to-do list */}
         <h2>To-Do List</h2>
         {/* Form for adding new to-do items */}
