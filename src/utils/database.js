@@ -44,6 +44,8 @@ function calculateTotalTasks(skill) {
             total += skillInfo[index].length;
         }
         console.log("Total tasks for current skill:",total);
+        userDB.userAccounts[user]["skills"][skill].totalTasks = total;
+        setLocal("skills-tracker", userDB);
     //}
 }
 

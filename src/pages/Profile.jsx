@@ -1,17 +1,28 @@
 import SavedSkill from "../components/SavedSkill/SavedSkill";
 import "./css/Profile.css"
+import { userDB } from "../utils/database"
 
 function Profile(){
-    let loggedIn = false;
+    const { currentUser } = userDB; // returns current user logged in
+    const skills = currentUser && userDB['userAccounts'][currentUser]['skills']; // returns object with skills for current user
+    const skillsKeysArray = skills ? Object.entries(skills) : [];
+    console.log(currentUser, skills, skillsKeysArray);
+    skillsKeysArray.map((skill, index)=>{
+        console.log(index)
+        console.log(skill[0])
+        console.log(skill[1].totalTasks)
+    })
     return (
         <div className="wrapper">
             <div className="profile">
-                <SavedSkill />
-                <SavedSkill />
-                <SavedSkill />
-                <SavedSkill />
-                <SavedSkill />
-                <SavedSkill />
+                {skills &&
+                skillsKeysArray.map((skill, index)=>(
+                    <SavedSkill 
+                        key={index}
+                        title={skill[0]}
+                        tasks={skill[1].totalTasks}
+                    />
+                ))}
             </div>
         </div>
     )
