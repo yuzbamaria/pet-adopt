@@ -25,7 +25,7 @@ function BookAPI(){
 
     const styleBook={
         border: "1px solid black",
-        margin: 0,
+        margin: "0.5rem",
     }
 
     return(<div>
@@ -39,15 +39,19 @@ function BookAPI(){
             <button className='btn btn-warning shadow m-2' onClick={()=>searchBooks()}>Search</button>
         </div>
         {/* List of books */}
-        <ul id="book-list">
+        <ul id="book-list" style={{padding:0}}>
             {/* {books.map((book) => ( */}
             {books.map((book) => (
             <li key={book.url} className="d-flex">
-                <input type="checkbox" className="p-3"/>
+                <input 
+                type="checkbox" 
+                className="p-3"
+                
+                />
                 <div className="p-2" style={styleBook}>
-                    <p>Title: {book.title}</p>
-                    <p>Author(s): {book.author}</p>
-                    <a href={book.url}>web-link</a>
+                    <p className="m-0"><b>Title: </b>{book.title}</p>
+                    <p className="m-0"><b>Author(s): </b>{book.author}</p>
+                    <a href={book.url}><b>web-link</b></a>
                 </div>
             </li>))}
         </ul>
