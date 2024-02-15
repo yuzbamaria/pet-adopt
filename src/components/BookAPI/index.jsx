@@ -7,7 +7,7 @@ function BookAPI(){
     const [books, setBooks] = useState([]);
 
     useEffect(()=>{
-        addBooks(books);
+        if (books.length>0)addBooks(books);
     },[books])
 
     function handleChange(query){

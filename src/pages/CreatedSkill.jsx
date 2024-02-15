@@ -10,10 +10,7 @@ const SkillPage = () => {
 
     // Extract relevant information
     const { skills } = currentUserDetails;
-
     const { books, videos, toDoItems } = skills[currentUser];
-
-    console.log(books[0].title)
 
     return (
         <div>
