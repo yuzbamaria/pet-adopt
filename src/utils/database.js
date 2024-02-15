@@ -23,13 +23,22 @@ const addSkillToUser = (skill, user) => {
     console.log(`Skill "${skill}" added to user ${user}`);
 }
 
-function getCurrentSkill(user){
-    
+export const addBooks = (booksObj) => {
+    const user = userDB.currentUser;
+    const skill = getCurrentSkill();
+    if (!userDB.userAccounts[user]["skills"][skill]["books"]) {
+        userDB.userAccounts[user]["skills"][skill]["books"] = {}; 
+    }
+    userDB.userAccounts[user]["skills"][skill]["books"] = booksObj;
+    setLocal("skills-tracker", userDB);
+}
+
+export function getCurrentSkill(user=userDB.currentUser, indexOffset=1){
     if(userDB.userAccounts[user]["skills"])
     {
         const skills = userDB.userAccounts[user]["skills"];
         const index = Object.keys(skills).length;
-        const lastKey = Object.keys(skills)[index-1];
+        const lastKey = Object.keys(skills)[index-indexOffset];
         console.log(index)
         console.log(lastKey)
         return lastKey;
