@@ -149,6 +149,7 @@ function getLocal(storageKey="skills-tracker"){
 function setLocal(storageKey, storageValue){
     // use this function AFTER adding new data to userDB.
     // saves all objects nested in userDB to localStorage.
+    console.log(storageValue);
     localStorage.setItem(storageKey, JSON.stringify(storageValue));
 }
 

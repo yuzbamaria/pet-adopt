@@ -8,7 +8,6 @@ function BookAPI(){
     const [selectedBooks, setSelectedBooks] = useState([]);
 
     useEffect(()=>{
-        console.log(books)
         if (books.length>0){
             addBooks(books);
             addBooks(selectedBooks, "savedBooks");
@@ -20,7 +19,7 @@ function BookAPI(){
     }
 
     function selectBook(book, checked){
-        console.log(book, checked);
+        // console.log(book, checked);
         //return
         let newSelection;
         if (checked){
@@ -28,9 +27,9 @@ function BookAPI(){
         } else {
             const index = selectedBooks.indexOf(book);
             selectedBooks.splice(index,1);
-            newSelection = selectedBooks;
+            newSelection = [...selectedBooks];
         }
-        console.log(newSelection);
+        // console.log(newSelection);
         setSelectedBooks(newSelection);
     }
 
