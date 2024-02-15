@@ -11,6 +11,7 @@
 
 ## Description
 
+
 As we reached week 13, we had our second project from EdX bootcamp where we collaborated and created a solution that integrated data from several server-side API requests to solve a real-world problem.
 
 In our second project as a team, we began from the ideation stage, created wireframes, and then implemented functionality. We adhered to agile management practices and actively used Trello for project management.
@@ -37,9 +38,8 @@ The final result is the app that assists a user in tracking the progress of gain
     
 - Add functionality to be able to edit each Skill card that is already created (add/remove to-do list items, change dates). 
 
-
 ## Motivation:
-- As keen learners, we thought that it would be helpful for us and like-minded people to have some management in relation to developing different skills where we can track the progress, and see/compare the results, which can eventually optimise our time. 
+- As keen learners, we thought that it would be helpful for us and like-minded people to have some management in relation to developing different skills where we can track the progress, and see/compare the results, which can eventually optimise our time.
 
 ## User story:
 - AS the learner 
