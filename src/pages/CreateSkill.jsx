@@ -1,6 +1,6 @@
 import React from "react";
 import Calendar from "../components/Calendar";
-import SkillNameInput from "../components/SkillNameInput";
+import SkillNameInput, { currentSkill } from "../components/SkillNameInput";
 import YoutubeAPIResult from "../components/YoutubeAPIResult";
 import ToDoList from "../components/ToDoList";
 import "./css/CreateSkill.css"
@@ -55,7 +55,10 @@ function CreateSkill() {
             </div>
                 <div className="row">
                     <div className="col text-center">
-                        <button className="mr-3 ml-3 custom-btn" onClick={()=> navigate("/CreatedSkill")}>Submit</button>
+                        <button className="mr-3 ml-3 custom-btn" onClick={()=> navigate("/CreatedSkill",{
+                            skill:currentSkill
+                        })}
+                            >Submit</button>
                     </div>
                 </div>
             </div> 

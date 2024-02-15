@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { addSkillToUser, userDB } from '../../utils/database'
 
-
+export let currentSkill;
 const SkillNameInput = () => {
     const [skillName, setSkillName] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -16,7 +16,8 @@ const SkillNameInput = () => {
           // Save the skillName to local storage
           // localStorage.setItem("skillName", JSON.stringify(trimmedSkillName));
           addSkillToUser(trimmedSkillName, userDB.currentUser);
-
+          currentSkill = trimmedSkillName;
+          console.log(currentSkill);
           // Clear the input field after saving
           setSkillName('');
           // Set the submitted state to true
