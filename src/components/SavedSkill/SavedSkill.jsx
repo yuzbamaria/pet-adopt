@@ -6,14 +6,6 @@ const skills = currentUser && userDB['userAccounts'][currentUser]['skills']; // 
 function SavedSkill(props){
     // console.log(currentUser, skills);
     // 
-    function showProgress(completed=1){
-        const bar = $(".progress");
-        bar.css("display", "block");
-        bar.css("width", `${(100/props.tasks)*completed}%`);
-        bar.css("height", `100%`);
-        bar.css("background-color", `aquamarine`);
-        /* bar.css("border-right", `solid 1px black`); */
-    }
 
     let progressStyle ={
         display: "block",
@@ -27,7 +19,7 @@ function SavedSkill(props){
 
     return (
         <div className="saved-skill" style={{color:"white"}}>
-            <h3 className="skill-title">skill title: {props.title}</h3>
+            <h3 className="skill-title">skill: {props.title}</h3>
             <p className="skill-status">status: {props.tasks===props.completed ? "Completed!" : "In progress..."}</p>
             <span>progress bar: {props.completed}/{props.tasks}</span>
             <div className="progress">

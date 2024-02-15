@@ -1,7 +1,7 @@
 import React from "react";
 import { userDB } from "../utils/database";
 
-const SkillPage = () => {
+const CreatedSkill = (props) => {
     // Get the current user's username
     const { currentUser } = userDB;
 
@@ -10,7 +10,9 @@ const SkillPage = () => {
 
     // Extract relevant information
     const { skills } = currentUserDetails;
-    const { savedBooks, videos, toDoItems } = skills[currentUser];
+    //const lastSkill = Object.keys(skills)[Object.keys(skills).length-1];
+    console.log(skills, props.skill, currentUser);
+    const { savedBooks, videos, toDoItems } = skills[props.skill];
 
     return (
         <div>
@@ -70,4 +72,4 @@ const SkillPage = () => {
     );
 };
 
-export default SkillPage;
+export default CreatedSkill;
