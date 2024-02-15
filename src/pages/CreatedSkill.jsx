@@ -10,7 +10,7 @@ const SkillPage = () => {
 
     // Extract relevant information
     const { skills } = currentUserDetails;
-    const { books, videos, toDoItems } = skills[currentUser];
+    const { savedBooks, videos, toDoItems } = skills[currentUser];
 
     return (
         <div>
@@ -46,8 +46,8 @@ const SkillPage = () => {
                 </ul>}
                 <h2>Books:</h2>
                 <ul>
-                    {books &&
-                        books.map((book, index) => (
+                    {savedBooks &&
+                        savedBooks.map((book, index) => (
                             <li key={index}>
                                 <h5>Book Title:</h5>
                                 {book.title}

@@ -5,17 +5,37 @@ import { addBooks } from "../../utils/database";
 function BookAPI(){
     const [searchTerm, setSearchTerm] = useState("");
     const [books, setBooks] = useState([]);
+    const [selectedBooks, setSelectedBooks] = useState([]);
 
     useEffect(()=>{
-        if (books.length>0)addBooks(books);
-    },[books])
+        console.log(books)
+        if (books.length>0){
+            addBooks(books);
+            addBooks(selectedBooks, "savedBooks");
+        }
+    },[books, selectedBooks])
 
     function handleChange(query){
         setSearchTerm(query);
     }
 
+    function selectBook(book, checked){
+        console.log(book, checked);
+        //return
+        let newSelection;
+        if (checked){
+            newSelection = [...selectedBooks, book];
+        } else {
+            const index = selectedBooks.indexOf(book);
+            selectedBooks.splice(index,1);
+            newSelection = selectedBooks;
+        }
+        console.log(newSelection);
+        setSelectedBooks(newSelection);
+    }
+
     function searchBooks(){
-        console.log(searchTerm)
+        console.log(searchTerm);
         setSearchQuery(searchTerm);
         callBookAPI()
         .then((bookInfo)=>{
@@ -47,6 +67,9 @@ function BookAPI(){
                 type="checkbox" 
                 className="p-3"
                 
+                onChange={(e)=>{
+                    selectBook(book, e.target.checked)
+                }}
                 />
                 <div className="p-2" style={styleBook}>
                     <p className="m-0"><b>Title: </b>{book.title}</p>

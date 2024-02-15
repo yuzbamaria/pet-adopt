@@ -16,22 +16,28 @@ const addSkillToUser = (skill, user) => {
         userDB.userAccounts[user]["skills"] = {}; 
     }
     // Pushes a new skill to the `skills` array of the specified user.
-    userDB.userAccounts[user]["skills"][skill] = {};
+    userDB.userAccounts[user]["skills"][skill] = {
+        book:[],
+        savedBooks:[],
+        videos:[],
+        toDoItems:[],
+    };
 
     // Saves the updated userDB to local storage.
     setLocal("skills-tracker", userDB);
     console.log(`Skill "${skill}" added to user ${user}`);
 }
 
-export const addBooks = (booksObj) => {
+export const addBooks = (booksObj, key="books") => {
     const user = userDB.currentUser;
     const skill = getCurrentSkill();
     // if (!skill)return;
-    if (!userDB.userAccounts[user]["skills"][skill]["books"]) {
-        userDB.userAccounts[user]["skills"][skill]["books"] = {}; 
+    if (!userDB.userAccounts[user]["skills"][skill][key]) {
+        userDB.userAccounts[user]["skills"][skill][key] = {}; 
     }
     console.log(booksObj)
-    userDB.userAccounts[user]["skills"][skill]["books"] = booksObj;
+    // userDB.userAccounts[user]["skills"][skill][key] = [];
+    userDB.userAccounts[user]["skills"][skill][key] = booksObj;
     setLocal("skills-tracker", userDB);
 }
 
