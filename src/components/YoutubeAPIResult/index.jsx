@@ -77,19 +77,22 @@ function YoutubeAPI() {
   
   return (
     // Main container div for the component
-    <div>
+    <>
       {/* Search input field and button */}
-      <div>
+      <div className="input-group mb-3">
         <input
           type="text"
           value={searchTerm} // Value of the input field is controlled by the 'searchTerm' state
           onChange={handleChange} // When the input changes, the 'handleChange' function is called
-          placeholder="Add a Youtube tutorial"  // Placeholder text for the input field
+          placeholder="Keyword..."  // Placeholder text for the input field
+          className="form-control"
         />
         {/* Button triggers the 'searchVideos' function when clicked */}
-        <div className='text-center'>
-          <button className='btn btn-warning search-btn shadow' onClick={searchVideos}>Search</button>
-        </div>
+          <button 
+            className="btn btn-outline-secondary search-btn" 
+            onClick={searchVideos}>
+              Search
+          </button>
       </div>
       {/* List of videos */}
       <ul>
@@ -121,7 +124,7 @@ function YoutubeAPI() {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 

@@ -38,27 +38,47 @@ const SkillNameInput = () => {
     }; 
 
     return (
-        <div>
-          <form onSubmit={handleSubmit}>
-            {/* <div>
-                <label htmlFor="skillName">Enter Skill Name:</label>
-            </div> */}
-            <div>
-                <input
-                type="text"
-                id="skillName"
-                placeholder="Enter Skill Name"
-                value={skillName}
-                onChange={handleChange}
-                />
-                <button className='btn search-btn shadow mx-3 px-4 py-2' type="submit">Save</button>
-            </div>
-          </form>
-          {/* Display error message if input is empty */}
-          {isEmptyError && <p className="error-message">Skill name cannot be empty</p>}
-          {/* Display a success message if the form is submitted */}
-          {isSubmitted && <p>Skill name is saved.</p>}
+
+      <form onSubmit={handleSubmit}>
+        <div className="input-group mb-3">
+          <input 
+            type="text" 
+            id="skillName"
+            className="form-control" 
+            placeholder="Enter Skill Name..." 
+            value={skillName}
+            onChange={handleChange}
+            // aria-label="Search" 
+            // aria-describedby="button-addon2" 
+          />
+          <button 
+            className="btn btn-outline-secondary search-btn" 
+            type="submit">
+            Save
+          </button>
         </div>
+      </form>
+          // {/* Display error message if input is empty */}
+          // {isEmptyError && <p className="error-message">Skill name cannot be empty</p>}
+          // {/* Display a success message if the form is submitted */}
+          // {isSubmitted && <p>Skill name is saved.</p>}
+       
+          // <form onSubmit={handleSubmit}>
+          //   <div>
+          //       <input
+          //       type="text"
+          //       id="skillName"
+          //       placeholder="Enter Skill Name"
+          //       value={skillName}
+          //       onChange={handleChange}
+          //       />
+          //       <button 
+          //          className='btn search-btn shadow mx-3 px-4 py-2' 
+                    // type="submit">Save</button>
+          //   </div>
+          // </form>
+          
+        
       );
 };
 
