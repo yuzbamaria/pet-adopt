@@ -84,7 +84,7 @@ Challenges:
 
 Successes:
 - Accomplishing the integration of Youtube API and created a list of Youtube links and titles, that are added with a checkbox which can be selected by the user and added to the to-do list of a particular skill. Save those links to local storage for further rendering. 
-- 
+- Understanding how to work and create React app (how to structure an app in terms of combining components, using states, routes, how to style).
 
 **Breakdown of tasks and roles**
 
@@ -95,6 +95,9 @@ Successes:
 - Used Bootstrap and custom css
 
 **Maria:**
+- Mostly worked on Create SKill and Created Skill pages (apart from Books api), Calendar component, bits of Navbar, Footer.
+- Utilised Youtube API to add videos to the to-do list.
+- Used Date picker for the Calendar component and Bootstrap React for styling.
 
 ## Screenshots of the application
 ![screenshot-start-page](./assets/images/index.html.png)
