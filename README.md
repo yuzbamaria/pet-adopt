@@ -53,11 +53,11 @@ The final result is the app that assists a user in tracking the progress of gain
 - Node.js;
 - React;
 - API:
-  - Y[YouTube API](https://developers.google.com/youtube)
-  - Open Library API https://openlibrary.org/;
+  - [YouTube API](https://developers.google.com/youtube)
+  - [Open Library API](https://openlibrary.org/)
 - Libraries:
-  - Date Picker https://reactdatepicker.com/;
-  - MUI https://mui.com/;
+  - [Date Picker](https://reactdatepicker.com/)
+  - [MUI](https://mui.com/)
 - Git/Github: Repo and version management.
 - Bootstrap React: For most of the CSS styling.
 - Netlify: for deployment.
