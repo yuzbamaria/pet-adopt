@@ -21,7 +21,7 @@ const addSkillToUser = (skill, user) => {
         toDoItems:[],
         savedBooks:[],
         books:[],
-        progress:0,
+        progress:undefined,
         totalTasks:0,
     };
 

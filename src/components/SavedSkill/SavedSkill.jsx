@@ -28,8 +28,8 @@ function SavedSkill(props){
     return (
         <div className="saved-skill" style={{color:"white"}}>
             <h3 className="skill-title">skill title: {props.title}</h3>
-            <p className="skill-status">skill status</p>
-            <span>progress bar: 0/{props.tasks}</span>
+            <p className="skill-status">status: {props.tasks===props.completed ? "Completed!" : "In progress..."}</p>
+            <span>progress bar: {props.completed}/{props.tasks}</span>
             <div className="progress">
                 <div className="bar" style={progressStyle}></div>
             </div>

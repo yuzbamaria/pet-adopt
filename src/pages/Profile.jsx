@@ -7,11 +7,12 @@ function Profile(){
     const skills = currentUser && userDB['userAccounts'][currentUser]['skills']; // returns object with skills for current user
     const skillsKeysArray = skills ? Object.entries(skills) : [];
     // console.log(currentUser, skills, skillsKeysArray);
-    // skillsKeysArray.map((skill, index)=>{
-    //     console.log(index)
-    //     console.log(skill[0])
-    //     console.log(skill[1].totalTasks)
-    // })
+    skillsKeysArray.map((skill, index)=>{
+        // console.log(index)
+        // console.log(skill[0])
+        // console.log(skill[1].totalTasks)
+        console.log(skill[1].progress);
+    })
     return (
         <div className="wrapper">
             <div className="profile">
@@ -21,7 +22,7 @@ function Profile(){
                         key={index}
                         title={skill[0]}
                         tasks={skill[1].totalTasks}
-                        completed={1}
+                        completed={skill[1].progress===undefined ? 1 : skill[1].progress}
                     />
                 ))}
             </div>
