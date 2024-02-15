@@ -51,7 +51,7 @@ const SkillNameInput = () => {
                 value={skillName}
                 onChange={handleChange}
                 />
-                <button className='btn btn-warning shadow m-2 pr-3 pl-3' type="submit">Save</button>
+                <button className='btn search-btn shadow mx-3 px-4 py-2' type="submit">Save</button>
             </div>
           </form>
           {/* Display error message if input is empty */}

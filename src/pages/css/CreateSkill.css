@@ -6,3 +6,31 @@
 .skill-name {
     min-width: 20rem;
 }
+
+.custom-btn {
+    background-color: rgb(208, 209, 214) !important; 
+    color: rgb(27, 47, 112);
+    border-radius: 20px;
+    padding: 10px 30px;
+    margin-top: 40px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgb(27, 47, 112);
+}
+
+.custom-btn:hover {
+    background-color: rgb(27, 47, 112) !important;
+    color: rgb(208, 209, 214);
+}
+
+.search-btn {
+    background-color: rgb(208, 209, 214) !important; 
+    color: rgb(27, 47, 112);
+    border-radius: 15px !important;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgb(27, 47, 112) !important;
+}
+
+.search-btn:hover {
+    background-color: rgb(27, 47, 112) !important;
+    color: rgb(208, 209, 214) !important;
+}

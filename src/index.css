@@ -66,3 +66,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+body {
+  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+  font-family: "Jost", sans-serif !important;
+}

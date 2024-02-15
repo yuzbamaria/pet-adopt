@@ -87,7 +87,9 @@ function YoutubeAPI() {
           placeholder="Add a Youtube tutorial"  // Placeholder text for the input field
         />
         {/* Button triggers the 'searchVideos' function when clicked */}
-        <button className='btn btn-warning shadow m-2 ' onClick={searchVideos}>Search</button>
+        <div className='text-center'>
+          <button className='btn btn-warning search-btn shadow' onClick={searchVideos}>Search</button>
+        </div>
       </div>
       {/* List of videos */}
       <ul>
