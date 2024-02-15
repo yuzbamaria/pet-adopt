@@ -52,7 +52,7 @@ The final result is the app that assists a user in tracking the progress of gain
 
 - Node.js;
 - React;
-- API:
+- APIs:
   - [YouTube API](https://developers.google.com/youtube)
   - [Open Library API](https://openlibrary.org/)
 - Libraries:
