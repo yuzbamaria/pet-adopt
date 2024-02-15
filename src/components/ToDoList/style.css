@@ -1,7 +1,7 @@
-ul {
+/* ul {
     list-style-type: none; 
     padding: 0 !important;
-}
+} */
 
 .checkbox-list {
   list-style-type: none;
@@ -18,23 +18,13 @@ ul {
 }
 
 .checkbox-item input {
-  margin-right: 10px; 
+    margin-right: 10px; 
 } 
 
-a {
-  color: rgb(27, 47, 112);
-}
-
-/* a:hover {
-  color: rgb(237, 196, 62);
-  
-} */
-
 .checkbox-item:hover {
-  background-color:  rgb(27, 47, 112);
+    background-color:  rgb(27, 47, 112);
 }
 
-.custom-stylebook:hover, a:hover {
-  color: rgb(237, 196, 62);
-  border: rgb(237, 196, 62);
+.checkbox-item span:hover {
+    color: white !important;
 }

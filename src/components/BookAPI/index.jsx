@@ -42,10 +42,10 @@ function BookAPI(){
         })
     }
 
-    const styleBook={
-        border: "1px solid black",
-        margin: "0.5rem",
-    }
+    // const styleBook={
+    //     border: "1px solid black",
+    //     margin: "0.5rem",
+    // }
 
     return(<div>
         <div className="input-group mb-3">
@@ -65,7 +65,7 @@ function BookAPI(){
         {/* List of books */}
         <ul id="book-list" style={{padding:0}}>
             {books.map((book) => (
-            <li key={book.url} className="d-flex">
+            <li key={book.url} className="checkbox-item">
                 <input 
                 type="checkbox" 
                 className="p-3"
@@ -74,14 +74,16 @@ function BookAPI(){
                     selectBook(book, e.target.checked)
                 }}
                 />
-                <div className="p-2" style={styleBook}>
+                
+                <div className="p-2 custom-stylebook">
                     <p className="m-0"><b>Title: </b>{book.title}</p>
                     <p className="m-0"><b>Author(s): </b>{book.author}</p>
                     <a href={book.url}><b>web-link</b></a>
                 </div>
+                {/* style={styleBook} */}
             </li>))}
         </ul>
     </div>)
 }
 
-export default BookAPI
+export default BookAPI;
