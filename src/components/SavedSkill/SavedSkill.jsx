@@ -26,7 +26,7 @@ function SavedSkill(props){
     }
 
     return (
-        <div className="saved-skill">
+        <div className="saved-skill" style={{color:"white"}}>
             <h3 className="skill-title">skill title: {props.title}</h3>
             <p className="skill-status">skill status</p>
             <span>progress bar: 0/{props.tasks}</span>
