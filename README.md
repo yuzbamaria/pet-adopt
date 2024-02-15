@@ -77,7 +77,7 @@ Successes:
 **Maria**
 
 Challenges:
-- I was a bit challenging to get used to working with REACT as it is based on what I've learnt before, but at the same time it's different.  
+- I took some time to get used to working with REACT as it is based on what I've learnt before, but at the same time it's different.  
 - A bit challenging to work in one file as a team as with the slight change of the code by a partner, your code needs debugging. 
 
 Successes:
