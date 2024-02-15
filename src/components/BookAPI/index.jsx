@@ -23,6 +23,11 @@ function BookAPI(){
         })
     }
 
+    const styleBook={
+        border: "1px solid black",
+        margin: 0,
+    }
+
     return(<div>
         <div>
             <input
@@ -37,8 +42,9 @@ function BookAPI(){
         <ul id="book-list">
             {/* {books.map((book) => ( */}
             {books.map((book) => (
-            <li key={book.url}>
-                <div>
+            <li key={book.url} className="d-flex">
+                <input type="checkbox" className="p-3"/>
+                <div className="p-2" style={styleBook}>
                     <p>Title: {book.title}</p>
                     <p>Author(s): {book.author}</p>
                     <a href={book.url}>web-link</a>

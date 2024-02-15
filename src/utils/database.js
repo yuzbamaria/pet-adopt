@@ -26,10 +26,11 @@ const addSkillToUser = (skill, user) => {
 export const addBooks = (booksObj) => {
     const user = userDB.currentUser;
     const skill = getCurrentSkill();
-    if (!skill)return;
+    // if (!skill)return;
     if (!userDB.userAccounts[user]["skills"][skill]["books"]) {
         userDB.userAccounts[user]["skills"][skill]["books"] = {}; 
     }
+    console.log(booksObj)
     userDB.userAccounts[user]["skills"][skill]["books"] = booksObj;
     setLocal("skills-tracker", userDB);
 }
@@ -40,8 +41,8 @@ export function getCurrentSkill(user=userDB.currentUser, indexOffset=1){
         const skills = userDB.userAccounts[user]["skills"];
         const index = Object.keys(skills).length;
         const lastKey = Object.keys(skills)[index-indexOffset];
-        console.log(index)
-        console.log(lastKey)
+        // console.log(index)
+        // console.log(lastKey)
         return lastKey;
     }else {
         // return ""

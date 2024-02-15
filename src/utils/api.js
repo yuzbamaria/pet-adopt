@@ -4,7 +4,7 @@ let searchQuery = "";
 let limit = 10;
 let apiUrl = ""
 let apiResponse = {}
-let bookInfo = []
+// let bookInfo = []
 
 const setSearchQuery = (query)=>{
   // let keywords = "Javascript React"
@@ -13,7 +13,8 @@ const setSearchQuery = (query)=>{
   apiUrl = `https://openlibrary.org/search.json?q=${searchQuery}&limit=${limit}`;
 }
 
-function callBookAPI(){
+async function callBookAPI(){
+  let bookInfo = [];
   console.log(apiUrl)
   return fetch(apiUrl)
     .then(response => {
@@ -44,4 +45,4 @@ function callBookAPI(){
     });
 }
 
-export { bookInfo, callBookAPI, setSearchQuery }
+export { callBookAPI, setSearchQuery }

@@ -15,52 +15,57 @@ const SkillPage = () => {
     return (
         <div>
             <h1>Welcome, {currentUser}!</h1>
-            <h2>Your Skills:</h2>
-            <ul>
-                {Object.keys(skills).map((skill, index) => (
-                    <li key={index}>{skill}</li>
-                ))}
-            </ul>
-            <h2>Start Dates:</h2>
-            <ul>
-                {Object.values(skills).map((skill, index) => (
-                    <li key={index}>{skill["startDate"]}</li>
-                ))}
-            </ul>
-            <h2>Finish Dates:</h2>
-            <ul>
-                {Object.values(skills).map((skill, index) => (
-                    <li key={index}>{skill["finishDate"]}</li>
-                ))}
-            </ul>
+            <div className="d-flex align-items-center flex-column">
+                <h2>Your Skills:</h2>
+                <ul>
+                    {Object.keys(skills).map((skill, index) => (
+                        <li key={index}>{skill}</li>
+                    ))}
+                </ul>
+                <h2>Start Dates:</h2>
+                <ul>
+                    {Object.values(skills).map((skill, index) => (
+                        <li key={index}>{skill["startDate"]}</li>
+                    ))}
+                </ul>
+                <h2>Finish Dates:</h2>
+                <ul>
+                    {Object.values(skills).map((skill, index) => (
+                        <li key={index}>{skill["finishDate"]}</li>
+                    ))}
+                </ul>
 
-            <h2>YouTube Videos:</h2>
-            {<ul>
-                {videos.map((video, index) => (
-                    <li key={index}>
-                        <a href={`https://www.youtube.com/watch?v=${video}`}>{`https://www.youtube.com/watch?v=${video}`}</a>
-                    </li>
-                ))}
-            </ul>}
-            <h2>Books:</h2>
-            <ul>
-                {books.map((book, index) => (
-                    <li key={index}>
-                        <h5>Book Title:</h5>
-                        {book.title}
-                        <h5>Author:</h5>
-                        {book.author}
-                        <h5>Web Link:</h5>
-                        <a href={`${book.url}`}>{`Web Link`}</a>
-                    </li>
-                ))}
-            </ul>
-            <h2>To-Do List:</h2>
-            <ul>
-                {toDoItems.map((item, index) => (
-                    <li key={index}>{item.text}</li>
-                ))}
-            </ul>
+                <h2>YouTube Videos:</h2>
+                {<ul>
+                    {videos &&
+                        videos.map((video, index) => (
+                            <li key={index}>
+                                <a href={`https://www.youtube.com/watch?v=${video}`}>{`https://www.youtube.com/watch?v=${video}`}</a>
+                            </li>
+                        ))}
+                </ul>}
+                <h2>Books:</h2>
+                <ul>
+                    {books &&
+                        books.map((book, index) => (
+                            <li key={index}>
+                                <h5>Book Title:</h5>
+                                {book.title}
+                                <h5>Author:</h5>
+                                {book.author}
+                                <h5>Web Link:</h5>
+                                <a href={`${book.url}`}>{`Web Link`}</a>
+                            </li>
+                        ))}
+                </ul>
+                <h2>To-Do List:</h2>
+                <ul>
+                    {toDoItems &&
+                        toDoItems.map((item, index) => (
+                            <li key={index}>{item.text}</li>
+                        ))}
+                </ul>
+            </div>
         </div>
     );
 };
