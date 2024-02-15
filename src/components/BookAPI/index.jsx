@@ -1,10 +1,14 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { callBookAPI, setSearchQuery } from "../../utils/api"
+import { addBooks } from "../../utils/database";
 
 function BookAPI(){
     const [searchTerm, setSearchTerm] = useState("");
     const [books, setBooks] = useState([]);
+
+    useEffect(()=>{
+        addBooks(books);
+    },[books])
 
     function handleChange(query){
         setSearchTerm(query);
