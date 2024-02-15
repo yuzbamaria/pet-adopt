@@ -69,7 +69,7 @@ function ToDoList() {
             type="text" 
             value={inputText}
             onChange={handleInputChange}
-            placeholder="Add a new to-do"
+            placeholder="Add a new to-do..."
             className="form-control" 
             // className="form-control"
             // aria-label="Search" 

@@ -21,7 +21,7 @@ function Header() {
                     Force Master Tracker
                 </Link>
                 
-                <div className="nav-options custom-nav-options">
+                <div className="nav-options">
                     {loggedIn
                     ?
                     <>
@@ -29,16 +29,16 @@ function Header() {
                         to="/CreateSkill" 
                         end
                         className={({ isActive }) =>
-                            isActive ? 'nav-link active create-skill' : 'nav-link create-skill'
+                            isActive ? 'nav-link custom-nav-options active create-skill' : 'nav-link create-skill'
                         }
                         >
                         Alter Your Force
                         </NavLink> 
-                        <Link className="logout" to="/" onClick={handleLogOut}>
+                        <Link className="logout custom-nav-options" to="/" onClick={handleLogOut}>
                             Withdraw from the Force
                         </Link>
                         <Link className="profile" to="/userprofile">
-                            <Avatar className="avatar" alt="Profile avatar" src="../../assets/profile-pic.png" />
+                            <Avatar className="avatar custom-nav-options" alt="Profile avatar" src="../../assets/profile-pic.png" />
                         </Link>
                     </>
                     :

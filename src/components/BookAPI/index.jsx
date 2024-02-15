@@ -48,14 +48,19 @@ function BookAPI(){
     }
 
     return(<div>
-        <div>
+        <div className="input-group mb-3">
             <input
                 type="text"
                 value={searchTerm}
                 onChange={(e)=>handleChange(e.target.value)}
-                placeholder="Search Books"
+                placeholder="Search Books..."
+                className="form-control"
             />
-            <button className='btn btn-warning shadow m-2' onClick={()=>searchBooks()}>Search</button>
+            <button 
+                className="btn btn-outline-secondary search-btn" 
+                onClick={()=>searchBooks()}>
+                Search
+            </button>
         </div>
         {/* List of books */}
         <ul id="book-list" style={{padding:0}}>
