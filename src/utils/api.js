@@ -15,7 +15,7 @@ const setSearchQuery = (query)=>{
 
 async function callBookAPI(){
   let bookInfo = [];
-  console.log(apiUrl)
+  // console.log(apiUrl)
   return fetch(apiUrl)
     .then(response => {
       if (!response.ok) {
@@ -31,13 +31,13 @@ async function callBookAPI(){
           author:"",
           url:"",
         }
-        console.log(apiResponse)
+        // console.log(apiResponse)
         book.title = apiResponse.docs[i].title
         book.author = apiResponse.docs[i].author_name && apiResponse.docs[i].author_name.length>0 ? apiResponse.docs[i].author_name.join(", ") : "n/a"
         book.url = `https://openlibrary.org${apiResponse.docs[i].key}`
         bookInfo.push(book);
       }
-      console.log(bookInfo);
+      // console.log(bookInfo);
       return bookInfo;
     })
     .catch(error => {

@@ -56,7 +56,7 @@ export const addBooks = (booksObj, key="books") => {
     if (!userDB.userAccounts[user]["skills"][skill][key]) {
         userDB.userAccounts[user]["skills"][skill][key] = {}; 
     }
-    console.log(booksObj)
+    // console.log(booksObj)
     // userDB.userAccounts[user]["skills"][skill][key] = [];
     userDB.userAccounts[user]["skills"][skill][key] = booksObj;
     setLocal("skills-tracker", userDB);
@@ -89,7 +89,7 @@ const addStartDate = (date, user) => {
     }
     userDB.userAccounts[user]["skills"][skill]["startDate"]=date;
     setLocal("skills-tracker", userDB);
-    console.log(userDB.userAccounts);
+    // console.log(userDB.userAccounts);
 }
 
 const addFinishDate = (date, user) => {
@@ -103,7 +103,7 @@ const addFinishDate = (date, user) => {
     }
     userDB.userAccounts[user]["skills"][skill]["finishDate"]=date;
     setLocal("skills-tracker", userDB);
-    console.log(userDB.userAccounts);
+    // console.log(userDB.userAccounts);
 }
 
 const addYoutubeVideos = (video, user) => {
@@ -128,10 +128,10 @@ const addToDoList = (toDoItem, user) => {
         userDB.userAccounts[user]["skills"][skill]["toDoItems"] = []; 
     }
 
-    console.log("Before push:", userDB.userAccounts[user]["skills"]["toDoItems"]);
+    // console.log("Before push:", userDB.userAccounts[user]["skills"]["toDoItems"]);
 
     userDB.userAccounts[user]["skills"][skill]["toDoItems"].push(toDoItem);
-    console.log("After push:", userDB.userAccounts[user]["skills"][skill]["toDoItems"]);
+    // console.log("After push:", userDB.userAccounts[user]["skills"][skill]["toDoItems"]);
 
     setLocal("skills-tracker", userDB);
     calculateTotalTasks(skill);
@@ -204,8 +204,8 @@ export function logOut(){
 function authenticateUser(userInput){
     const username = userInput[0];
     const password = userInput[1];
-    console.log(userInput)
-    console.log(userDB)
+    // console.log(userInput)
+    // console.log(userDB)
     if (userDB.userAccounts[username]["password"] === password){
         console.log("successful login")
         // currentUser = username;
