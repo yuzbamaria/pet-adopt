@@ -17,15 +17,36 @@ const addSkillToUser = (skill, user) => {
     }
     // Pushes a new skill to the `skills` array of the specified user.
     userDB.userAccounts[user]["skills"][skill] = {
-        books:[],
-        savedBooks:[],
         videos:[],
         toDoItems:[],
+        savedBooks:[],
+        books:[],
+        progress:undefined,
+        totalTasks:0,
     };
 
     // Saves the updated userDB to local storage.
     setLocal("skills-tracker", userDB);
     console.log(`Skill "${skill}" added to user ${user}`);
+}
+
+function calculateTotalTasks(skill) {
+    const user = userDB.currentUser;
+    // const userSkills = Object.values(userDB.userAccounts[user]["skills"])
+    const userSkill = userDB.userAccounts[user]["skills"][skill];
+    // console.log(userSkills)
+    // console.log(userSkills.length)
+    //for(let i=0; i < userSkills.length; i++){
+        let total=0;
+        for (let index=0; index<3; index++) {
+            // console.log(i, index, userSkills, userSkills[i]);
+            const skillInfo = Object.values(userSkill);
+            total += skillInfo[index].length;
+        }
+        console.log("Total tasks for current skill:",total);
+        userDB.userAccounts[user]["skills"][skill].totalTasks = total;
+        setLocal("skills-tracker", userDB);
+    //}
 }
 
 export const addBooks = (booksObj, key="books") => {
@@ -35,10 +56,11 @@ export const addBooks = (booksObj, key="books") => {
     if (!userDB.userAccounts[user]["skills"][skill][key]) {
         userDB.userAccounts[user]["skills"][skill][key] = {}; 
     }
-    console.log(booksObj)
+    // console.log(booksObj)
     // userDB.userAccounts[user]["skills"][skill][key] = [];
     userDB.userAccounts[user]["skills"][skill][key] = booksObj;
     setLocal("skills-tracker", userDB);
+    calculateTotalTasks(skill);
 }
 
 export function getCurrentSkill(user=userDB.currentUser, indexOffset=1){
@@ -67,7 +89,7 @@ const addStartDate = (date, user) => {
     }
     userDB.userAccounts[user]["skills"][skill]["startDate"]=date;
     setLocal("skills-tracker", userDB);
-    console.log(userDB.userAccounts);
+    // console.log(userDB.userAccounts);
 }
 
 const addFinishDate = (date, user) => {
@@ -81,7 +103,7 @@ const addFinishDate = (date, user) => {
     }
     userDB.userAccounts[user]["skills"][skill]["finishDate"]=date;
     setLocal("skills-tracker", userDB);
-    console.log(userDB.userAccounts);
+    // console.log(userDB.userAccounts);
 }
 
 const addYoutubeVideos = (video, user) => {
@@ -93,7 +115,8 @@ const addYoutubeVideos = (video, user) => {
     }
     userDB.userAccounts[user]["skills"][skill]["videos"]=[...video];
     setLocal("skills-tracker", userDB);
-    console.log(userDB.userAccounts);
+    calculateTotalTasks(skill);
+    // console.log(userDB.userAccounts);
 }
 
 const addToDoList = (toDoItem, user) => {
@@ -105,13 +128,14 @@ const addToDoList = (toDoItem, user) => {
         userDB.userAccounts[user]["skills"][skill]["toDoItems"] = []; 
     }
 
-    console.log("Before push:", userDB.userAccounts[user]["skills"]["toDoItems"]);
+    // console.log("Before push:", userDB.userAccounts[user]["skills"]["toDoItems"]);
 
     userDB.userAccounts[user]["skills"][skill]["toDoItems"].push(toDoItem);
-    console.log("After push:", userDB.userAccounts[user]["skills"][skill]["toDoItems"]);
+    // console.log("After push:", userDB.userAccounts[user]["skills"][skill]["toDoItems"]);
 
     setLocal("skills-tracker", userDB);
-    console.log("Updated userDB:", userDB.userAccounts);
+    calculateTotalTasks(skill);
+    // console.log("Updated userDB:", userDB.userAccounts);
 }
 
 export function toDoCompleted(updated, user){
@@ -180,8 +204,8 @@ export function logOut(){
 function authenticateUser(userInput){
     const username = userInput[0];
     const password = userInput[1];
-    console.log(userInput)
-    console.log(userDB)
+    // console.log(userInput)
+    // console.log(userDB)
     if (userDB.userAccounts[username]["password"] === password){
         console.log("successful login")
         // currentUser = username;

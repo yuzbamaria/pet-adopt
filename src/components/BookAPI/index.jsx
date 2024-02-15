@@ -59,7 +59,6 @@ function BookAPI(){
         </div>
         {/* List of books */}
         <ul id="book-list" style={{padding:0}}>
-            {/* {books.map((book) => ( */}
             {books.map((book) => (
             <li key={book.url} className="d-flex">
                 <input 
