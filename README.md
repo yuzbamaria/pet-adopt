@@ -11,35 +11,35 @@
 
 ## Description
 
-As we reached week 13, we had our second project from EdX bootcamp where we collaborated and crreated a solution that integrated data from several server-side API requests to solve a real-world problem.
+
+As we reached week 13, we had our second project from EdX bootcamp where we collaborated and created a solution that integrated data from several server-side API requests to solve a real-world problem.
 
 In our second project as a team, we began from the ideation stage, created wireframes, and then implemented functionality. We adhered to agile management practices and actively used Trello for project management.
-This allowed us to effectivily distrubute the tasks within the team, stick to deadlines and create an MVP within a relatively short time frame. We managed to successfully work on different features and fix bugs by using git branch workflow and pull request system.
+This allowed us to effectively distribute the tasks within the team, stick to deadlines and create an MVP within a relatively short time frame. We managed to successfully work on different features and fix bugs by using git branch workflow and pull request system.
 
 The final result is the app that assists a user in tracking the progress of gaining a particular skill. The user can create a card for a particular skill where they can: 
 - add a skill name,
 - start and finish dates,
-- get a Youtube tutorial (by getting data from Youtube API),
+- get a YouTube tutorial (by getting data from YouTube API),
 - add a book relative to the topic (by getting data from Open Library,
-- add some tasks to reach the required skill level (to do list).
+- add some tasks to reach the required skill level (to-do list).
 
 ## Features:
 - Creates a skill card with the to-do list.
 - Allows to add Youtube links to the to-do list by typing in a keyword and selecting the necessary videos.
 - Allows to add books' links to the to-do list by typing in a keyword and selecting the necessary books by title.
-- Visualizes all your skills that you are working on. 
+- Visualizes all the skills that you are working on. 
 
 ## Future Enhancements:
 
 - Add statistics on:
-  - how many days have the user spent for a particular skill;
+  - how many days has the user spent on a particular skill;
   - which days and hours were the most active;
     
-- Add a functionality to be able to edit each Skill card that is already created (add/remove to-do list items, change dates). 
-
+- Add functionality to be able to edit each Skill card that is already created (add/remove to-do list items, change dates). 
 
 ## Motivation:
-- As keen learners we thought that it would be helpful for us and like-minded people to have some management in relation to developing different skills where we can track the progress, see/compare the results, which can eventually optimise our time. 
+- As keen learners, we thought that it would be helpful for us and like-minded people to have some management in relation to developing different skills where we can track the progress, and see/compare the results, which can eventually optimise our time.
 
 ## User story:
 - AS the learner 
@@ -70,30 +70,36 @@ The final result is the app that assists a user in tracking the progress of gain
 **Saif**
 
 Challenges:
+- Learning React has been the biggest learning curve yet in this Bootcamp which I had little knowledge when starting this project.
+- Effectively rendering React components using the Array.map function.
 
 Successes:
-
+- Learning how to use React components, states and hooks/custom hooks.
+- Being able to deploy a working application to Netlify.
 
 **Maria**
 
 Challenges:
-- I took some time to get used to working with REACT as it is based on what I've learnt before, but at the same time it's different.  
+- I took some time to get used to working with REACT as it is based on what I've learnt before, but at the same time, it's different.  
 - A bit challenging to work in one file as a team as with the slight change of the code by a partner, your code needs debugging. 
 
 Successes:
-- Accomplishing the integration of Youtube API and created a list of Youtube links and titles, that are added with a checkbox which can be selected by the user and added to the to-do list of a particular skill. Save those link to local storage for further rendering. 
+- Accomplishing the integration of Youtube API and created a list of Youtube links and titles, that are added with a checkbox which can be selected by the user and added to the to-do list of a particular skill. Save those links to local storage for further rendering. 
 - 
 
 **Breakdown of tasks and roles**
 
 **Saif:** 
-
+- Main focus working on JS functionality.
+- Split up React components and pages to work on.
+- Used Material UI for SignIn & SignUp pages
+- Used Bootstrap and custom css
 
 **Maria:**
 
 ## Screenshots of the application
-![screenshot-start-page](assets/images/index.html.png)
-![screenshot-input-page](assets/images/homepage.html.png)
+![screenshot-start-page](./assets/images/index.html.png)
+![screenshot-input-page](./assets/images/homepage.html.png)
 
 ## Resources
 
