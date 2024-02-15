@@ -56,12 +56,14 @@ const SkillNameInput = () => {
             type="submit">
             Save
           </button>
+         
         </div>
+         {/* Display a success message if the form is submitted */}
+         {isSubmitted && <p>Skill name is saved.</p>}
       </form>
           // {/* Display error message if input is empty */}
           // {isEmptyError && <p className="error-message">Skill name cannot be empty</p>}
-          // {/* Display a success message if the form is submitted */}
-          // {isSubmitted && <p>Skill name is saved.</p>}
+          
        
           // <form onSubmit={handleSubmit}>
           //   <div>

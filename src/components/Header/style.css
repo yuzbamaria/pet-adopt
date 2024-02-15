@@ -15,12 +15,21 @@
 .custom-logo {
     font-family: 'Star Wars', sans-serif;
     /* font-size: 3 rem !important; */
-    color: rgb(208, 209, 214) !important; ;
+    color:rgb(237, 196, 62) !important; 
+}
+
+.custom-logo:hover {
+    color: rgb(208, 209, 214) !important;
 }
 
 .custom-nav-options {
     color: rgb(208, 209, 214) !important; 
     font-family: "Jost", sans-serif;
+}
+
+.custom-nav-options:hover {
+    color:rgb(237, 196, 62) !important; 
+    border-bottom: 2px solid rgb(237, 196, 62);
 }
 
 

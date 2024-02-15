@@ -17,7 +17,7 @@ function CreateSkill() {
                 <div className="col-lg-6 mb-4">
                     <div className="card">
                         <div className="card-body text-center"> 
-                            <h4 className="card-title">Enter skill name</h4>
+                            <h4 className="card-title custom-title">Enter skill name</h4>
                             <SkillNameInput />
                             <Calendar />
                         </div>
@@ -29,7 +29,7 @@ function CreateSkill() {
                 <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="card skill-card">
                         <div className="card-body">
-                            <h4 className="card-title">Add YouTube tutorial</h4>
+                            <h4 className="card-title custom-title">Add YouTube tutorial</h4>
                             <YoutubeAPIResult />
                         </div>
                     </div>
@@ -37,9 +37,9 @@ function CreateSkill() {
                 <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="card skill-card">
                         <div className="card-body">
-                            <h2 className="card-title">
+                            <h4 className="card-title custom-title">
                                 Add books
-                            </h2>
+                            </h4>
                             <BookAPI />
                         </div>
                     </div>
@@ -47,7 +47,7 @@ function CreateSkill() {
                 <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="card skill-card">
                         <div className="card-body">
-                            <h4 className="card-title">Add your to-do list</h4>
+                            <h4 className="card-title custom-title">Add your to-do list</h4>
                             <ToDoList />
                         </div>
                     </div>
