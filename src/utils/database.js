@@ -49,15 +49,6 @@ function calculateTotalTasks(skill) {
     //}
 }
 
-function showProgress(bars){
-    const bar = $(".progress");
-    bar.css("display", "block");
-    bar.css("width", `${(100/apiResult.results.length)*bars}%`);
-    bar.css("height", `100%`);
-    bar.css("background-color", `aquamarine`);
-    /* bar.css("border-right", `solid 1px black`); */
-}
-
 export const addBooks = (booksObj, key="books") => {
     const user = userDB.currentUser;
     const skill = getCurrentSkill();
