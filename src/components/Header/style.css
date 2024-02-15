@@ -6,3 +6,14 @@
 .logout {
     color: var(--bs-nav-link-color)
 }
+
+.custom-navbar {
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    border-bottom: 1px solid rgb(116, 121, 138);
+}
+
+.custom-logo {
+    font-family: 'Star Wars', sans-serif;
+    /* font-size: 3 rem !important; */
+    color: rgb(208, 209, 214) !important; ;
+}

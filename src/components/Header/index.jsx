@@ -15,9 +15,9 @@ function Header() {
 
     return (
     <>
-        <nav className="navbar navbar-expand-md bg-body-tertiary">
+        <nav className="navbar navbar-expand-md bg-body-tertiary custom-navbar">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">
+                <Link className="navbar-brand custom-logo" to="/">
                     Force Mastery Tracker
                 </Link>
                 
