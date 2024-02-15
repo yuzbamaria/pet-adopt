@@ -81,7 +81,6 @@ Successes:
 
 Challenges:
 - I took some time to get used to working with REACT as it is based on what I've learnt before, but at the same time, it's different.  
-- A bit challenging to work in one file as a team as with the slight change of the code by a partner, your code needs debugging. 
 
 Successes:
 - Accomplishing the integration of Youtube API and created a list of Youtube links and titles, that are added with a checkbox which can be selected by the user and added to the to-do list of a particular skill. Save those links to local storage for further rendering. 
