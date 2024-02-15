@@ -17,15 +17,43 @@ const addSkillToUser = (skill, user) => {
     }
     // Pushes a new skill to the `skills` array of the specified user.
     userDB.userAccounts[user]["skills"][skill] = {
-        books:[],
-        savedBooks:[],
         videos:[],
         toDoItems:[],
+        savedBooks:[],
+        books:[],
+        progress:0,
+        totalTasks:0,
     };
 
     // Saves the updated userDB to local storage.
     setLocal("skills-tracker", userDB);
     console.log(`Skill "${skill}" added to user ${user}`);
+}
+
+function calculateTotalTasks(skill) {
+    const user = userDB.currentUser;
+    // const userSkills = Object.values(userDB.userAccounts[user]["skills"])
+    const userSkill = userDB.userAccounts[user]["skills"][skill];
+    // console.log(userSkills)
+    // console.log(userSkills.length)
+    //for(let i=0; i < userSkills.length; i++){
+        let total=0;
+        for (let index=0; index<3; index++) {
+            // console.log(i, index, userSkills, userSkills[i]);
+            const skillInfo = Object.values(userSkill);
+            total += skillInfo[index].length;
+        }
+        console.log("Total tasks for current skill:",total);
+    //}
+}
+
+function showProgress(bars){
+    const bar = $(".progress");
+    bar.css("display", "block");
+    bar.css("width", `${(100/apiResult.results.length)*bars}%`);
+    bar.css("height", `100%`);
+    bar.css("background-color", `aquamarine`);
+    /* bar.css("border-right", `solid 1px black`); */
 }
 
 export const addBooks = (booksObj, key="books") => {
@@ -39,6 +67,7 @@ export const addBooks = (booksObj, key="books") => {
     // userDB.userAccounts[user]["skills"][skill][key] = [];
     userDB.userAccounts[user]["skills"][skill][key] = booksObj;
     setLocal("skills-tracker", userDB);
+    calculateTotalTasks(skill);
 }
 
 export function getCurrentSkill(user=userDB.currentUser, indexOffset=1){
@@ -93,7 +122,8 @@ const addYoutubeVideos = (video, user) => {
     }
     userDB.userAccounts[user]["skills"][skill]["videos"]=[...video];
     setLocal("skills-tracker", userDB);
-    console.log(userDB.userAccounts);
+    calculateTotalTasks(skill);
+    // console.log(userDB.userAccounts);
 }
 
 const addToDoList = (toDoItem, user) => {
@@ -111,7 +141,8 @@ const addToDoList = (toDoItem, user) => {
     console.log("After push:", userDB.userAccounts[user]["skills"][skill]["toDoItems"]);
 
     setLocal("skills-tracker", userDB);
-    console.log("Updated userDB:", userDB.userAccounts);
+    calculateTotalTasks(skill);
+    // console.log("Updated userDB:", userDB.userAccounts);
 }
 
 export function toDoCompleted(updated, user){
