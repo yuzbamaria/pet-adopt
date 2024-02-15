@@ -17,7 +17,7 @@ const addSkillToUser = (skill, user) => {
     }
     // Pushes a new skill to the `skills` array of the specified user.
     userDB.userAccounts[user]["skills"][skill] = {
-        book:[],
+        books:[],
         savedBooks:[],
         videos:[],
         toDoItems:[],
@@ -149,7 +149,7 @@ function getLocal(storageKey="skills-tracker"){
 function setLocal(storageKey, storageValue){
     // use this function AFTER adding new data to userDB.
     // saves all objects nested in userDB to localStorage.
-    console.log(storageValue);
+    // console.log(storageValue);
     localStorage.setItem(storageKey, JSON.stringify(storageValue));
 }
 
