@@ -11,8 +11,8 @@ function CreateSkill() {
     const navigate = useNavigate();
     return(<div>
         <div className="container d-flex align-items-center flex-column min-vh-100">
-            <div className="row">
-                <div className="col">
+            {/* <div className="row"> */}
+                <div className="col-lg-6 col-md-9 col-sm-12">
                     <div className="card skill-card skill-name">
                         <div className="card-body d-flex align-items-center flex-column">
                             <h2 className="card-title text-center">
@@ -23,7 +23,7 @@ function CreateSkill() {
                         </div>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
             <div className="row">
                 <div className="col">
                     <div className="card skill-card">
@@ -54,8 +54,13 @@ function CreateSkill() {
                                 To-Do lis
                             </h2> */}
                             <ToDoList />
-                            <button onClick={()=> navigate("/CreatedSkill")}>Submit</button>
+                           
                         </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col text-center">
+                        <button className="mr-3 ml-3 custom-btn" onClick={()=> navigate("/CreatedSkill")}>Submit</button>
                     </div>
                 </div>
             </div>

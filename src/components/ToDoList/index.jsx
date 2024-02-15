@@ -84,7 +84,7 @@ function ToDoList() {
             placeholder="Add a new to-do"
             />
             {/* Button for submitting the form */}
-            <button className='btn btn-warning shadow m-2' type="submit">Add</button>
+            <button className='btn search-btn shadow m-2' type="submit">Add</button>
             {/* <button className='btn btn-warning shadow m-2' onClick={searchBooks}>Search</button> */}
         </form>
         {/* Render the list of to-do items */}
