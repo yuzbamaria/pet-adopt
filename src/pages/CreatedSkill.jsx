@@ -13,12 +13,7 @@ const SkillPage = () => {
 
     const { books, videos, toDoItems } = skills[currentUser];
 
-    // let userSkills = Object.values(skills[currentUser])
-    // let startDate = Object.values(skills[currentUser])[0]
-    let finishDate = Object.values(skills[currentUser])[1]
-    // let youtubeVideos = Object.values(skills[currentUser])[3]
-    // console.log(userSkills)
-    // console.log(youtubeVideos)
+    console.log(books[0].title)
 
     return (
         <div>
@@ -52,8 +47,15 @@ const SkillPage = () => {
             </ul>}
             <h2>Books:</h2>
             <ul>
-                {books.map((item, index) => (
-                    <li key={index}>{item.title}</li>
+                {books.map((book, index) => (
+                    <li key={index}>
+                        <h5>Book Title:</h5>
+                        {book.title}
+                        <h5>Author:</h5>
+                        {book.author}
+                        <h5>Web Link:</h5>
+                        <a href={`${book.url}`}>{`Web Link`}</a>
+                    </li>
                 ))}
             </ul>
             <h2>To-Do List:</h2>
