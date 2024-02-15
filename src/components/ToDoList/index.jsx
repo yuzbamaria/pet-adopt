@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { addToDoList, setLocal, toDoCompleted, userDB } from '../../utils/database'
+import React, { useState} from 'react';
+import { addToDoList, toDoCompleted, userDB } from '../../utils/database'
 
 
 function ToDoList() {
@@ -38,11 +38,6 @@ function ToDoList() {
         }
     };
 
-    /* useEffect(()=>{
-        addToDoList(todos, userDB.currentUser);
-        setLocal("skills-tracker", userDB);
-    },[todos]) */
-
     // Function to handle changes in the checkbox
     const handleCheckboxChange = (id) => {
         const user = userDB.currentUser;
@@ -63,29 +58,28 @@ function ToDoList() {
         
     };
 
-
-// useEffect(() => {
-//     localStorage.setItem("todos", JSON.stringify(todos));
-// }, [todos]);
-
-
- // Render the TodoList component
  return (
-    <div className='d-flex align-items-center flex-column'>
-        {/* Heading for the to-do list */}
-        <h2>To-Do List</h2>
+    <>
+    
         {/* Form for adding new to-do items */}
         <form onSubmit={handleSubmit}>
+        <div className="input-group mb-3">
             {/* Input field for typing new to-do items */}
             <input 
             type="text" 
             value={inputText}
             onChange={handleInputChange}
             placeholder="Add a new to-do"
+            className="form-control" 
+            // className="form-control"
+            // aria-label="Search" 
             />
-            {/* Button for submitting the form */}
-            <button className='btn search-btn shadow m-2' type="submit">Add</button>
+            <button 
+                className="btn btn-outline-secondary search-btn">
+                    Add
+            </button>
             {/* <button className='btn btn-warning shadow m-2' onClick={searchBooks}>Search</button> */}
+        </div>
         </form>
         {/* Render the list of to-do items */}
         <ul>
@@ -106,7 +100,7 @@ function ToDoList() {
                 </li>
             ))}
         </ul>
-    </div>
+    </>
  )
 }
 

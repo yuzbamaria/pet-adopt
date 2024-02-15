@@ -18,7 +18,7 @@ function Header() {
         <nav className="navbar navbar-expand-md bg-body-tertiary custom-navbar">
             <div className="container-fluid">
                 <Link className="navbar-brand custom-logo" to="/">
-                    FORCE MASTERY TRACKER
+                    Force Master Tracker
                 </Link>
                 
                 <div className="nav-options custom-nav-options">

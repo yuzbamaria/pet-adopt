@@ -9,79 +9,60 @@ import { useNavigate } from 'react-router-dom';
 
 function CreateSkill() {
     const navigate = useNavigate();
-    return(<div>
-        <div className="container d-flex align-items-center flex-column min-vh-100">
-            {/* <div className="row"> */}
-                <div className="col-lg-6 col-md-9 col-sm-12">
-                    <div className="card skill-card skill-name">
-                        <div className="card-body d-flex align-items-center flex-column">
-                            <h2 className="card-title text-center">
-                                Enter skill name
-                            </h2>
+    return (
+        <>
+        <div className="container min-vh-100 mt-5 mb-5 pt-5 text-center">
+            
+            <div className="row justify-content-center">
+                <div className="col-lg-6 mb-4">
+                    <div className="card">
+                        <div className="card-body text-center"> 
+                            <h4 className="card-title">Enter skill name</h4>
                             <SkillNameInput />
                             <Calendar />
                         </div>
                     </div>
                 </div>
-            {/* </div> */}
-            <div className="row">
-                <div className="col">
+            </div> 
+
+            <div className="row justify-content-center">
+                <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="card skill-card">
                         <div className="card-body">
-                            <h2 className="card-title text-center">
-                                Add YouTube tutorials
-                            </h2>
+                            <h4 className="card-title">Add YouTube tutorial</h4>
                             <YoutubeAPIResult />
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="card skill-card">
                         <div className="card-body">
-                            <h2 className="card-title text-center">
+                            <h2 className="card-title">
                                 Add books
                             </h2>
                             <BookAPI />
                         </div>
                     </div>
                 </div>
-            {/* </div> */}
-            {/* <div className="row"> */}
-                <div className="col">
+                <div className="col-lg-4 col-md-6 col-sm-12">
                     <div className="card skill-card">
                         <div className="card-body">
-                            {/* <h2 className="card-title text-center">
-                                To-Do lis
-                            </h2> */}
+                            <h4 className="card-title">Add your to-do list</h4>
                             <ToDoList />
-                           
                         </div>
                     </div>
                 </div>
+            </div>
                 <div className="row">
                     <div className="col text-center">
                         <button className="mr-3 ml-3 custom-btn" onClick={()=> navigate("/CreatedSkill")}>Submit</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>)
+            </div> 
+        </>       
+    );
 }
 
 export default CreateSkill;
 
 
-// Create a page CreateSkill.jsx +
-// CreateSkill.jsx my part will render: 
-// Header with Logo +
-// Title - Add a new skill +
-// Skill Name - User input +
-// Set dates component +
-//    Skill name - input (save to Local storage)
-//    Start date and Finish date (save to Local storage)
-// Coursera Search +
-//    user input +
-//    button +
-//    Coursera API 
-// ToDoList component 
-//    user input where a user creates a to do list manually (save to Local storage)

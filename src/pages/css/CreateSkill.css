@@ -8,7 +8,7 @@
 }
 
 .custom-btn {
-    background-color: rgb(208, 209, 214) !important; 
+    background-color: rgb(192, 158, 48) !important; 
     color: rgb(27, 47, 112);
     border-radius: 20px;
     padding: 10px 30px;
@@ -23,14 +23,18 @@
 }
 
 .search-btn {
-    background-color: rgb(208, 209, 214) !important; 
-    color: rgb(27, 47, 112);
-    border-radius: 15px !important;
+    background-color:rgb(192, 158, 48) !important; 
+    color: rgb(20, 34, 83)  !important;
+    /* border-radius: 15px !important;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgb(27, 47, 112) !important;
+    border: 1px solid rgb(27, 47, 112) !important; */
 }
 
 .search-btn:hover {
     background-color: rgb(27, 47, 112) !important;
     color: rgb(208, 209, 214) !important;
+}
+
+h4 {
+    color: rgb(27, 47, 112) !important;
 }

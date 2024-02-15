@@ -28,38 +28,36 @@ const Calendar = () => {
         };
     
     return (
-        <div>
-            <div>
-                <label htmlFor="start">Start Date</label>
-            </div>
-            <div>
-                <DatePicker
-                    id="start"
-                    selected={startDate}
-                    onChange={handleStartDateChange}
-                    showYearDropdown
-                    scrollableMonthYearDropdown
-                    dateFormat="dd/MM/yyyy"
-                    ref={startDateRef}
-                />
-            </div>
-
-            <div>
-                <label htmlFor="finish">Finish Date:</label>
-            </div>
-            <div>
-                <DatePicker
-                    id="finish"
-                    selected={finishDate}
-                    onChange={handleFinishDateChange}
-                    showYearDropdown
-                    scrollableMonthYearDropdown
-                    dateFormat="dd/MM/yyyy"
-                    ref={finishDateRef}
-                />
-            </div>
+        <>
+        <div className="form-group">
+            <label htmlFor="start-date" style={{ marginRight: "10px" }}>Start Date</label>
+            <DatePicker 
+                type="date" 
+                className="form-control" 
+                id="start-date" 
+                selected={startDate}
+                onChange={handleStartDateChange}
+                showYearDropdown
+                scrollableMonthYearDropdown
+                dateFormat="dd/MM/yyyy"
+                ref={startDateRef}
+            />
         </div>
+        <div className="form-group" style={{ marginTop: "10px" }}>
+            <label htmlFor="finish-date" style={{ marginRight: "10px" }}>Finish Date</label>
+            <DatePicker
+                id="finish"
+                selected={finishDate}
+                onChange={handleFinishDateChange}
+                showYearDropdown
+                scrollableMonthYearDropdown
+                dateFormat="dd/MM/yyyy"
+                className="form-control"
+                ref={finishDateRef}
+            />
+        </div>
+        </>
     );
-}
+ }
 
 export default Calendar;
