@@ -18,10 +18,10 @@ function Header() {
         <nav className="navbar navbar-expand-md bg-body-tertiary custom-navbar">
             <div className="container-fluid">
                 <Link className="navbar-brand custom-logo" to="/">
-                    Force Mastery Tracker
+                    FORCE MASTERY TRACKER
                 </Link>
                 
-                <div className="nav-options">
+                <div className="nav-options custom-nav-options">
                     {loggedIn
                     ?
                     <>
@@ -32,10 +32,10 @@ function Header() {
                             isActive ? 'nav-link active create-skill' : 'nav-link create-skill'
                         }
                         >
-                        Add a skill
+                        Alter Your Force
                         </NavLink> 
                         <Link className="logout" to="/" onClick={handleLogOut}>
-                            Logout
+                            Withdraw from the Force
                         </Link>
                         <Link className="profile" to="/userprofile">
                             <Avatar className="avatar" alt="Profile avatar" src="../../assets/profile-pic.png" />
@@ -76,7 +76,7 @@ function Header() {
                                         isActive ? 'nav-link active' : 'nav-link'
                                     }
                                     >
-                                    Sign In
+                                    SIGN IN
                                     </NavLink> 
                                 </li>
                             </ul>

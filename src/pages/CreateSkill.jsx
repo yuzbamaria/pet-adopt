@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 function CreateSkill() {
     const navigate = useNavigate();
     return(<div>
-        <div className="container d-flex align-items-center flex-column">
+        <div className="container d-flex align-items-center flex-column min-vh-100">
             <div className="row">
                 <div className="col">
                     <div className="card skill-card skill-name">

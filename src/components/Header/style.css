@@ -17,3 +17,10 @@
     /* font-size: 3 rem !important; */
     color: rgb(208, 209, 214) !important; ;
 }
+
+.custom-nav-options {
+    color: rgb(208, 209, 214) !important; 
+    font-family: "Jost", sans-serif;
+}
+
+
