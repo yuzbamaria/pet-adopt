@@ -1,0 +1,27 @@
+ul {
+    list-style-type: none; 
+    padding: 0 !important;
+}
+
+.checkbox-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.checkbox-item {
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 10px; 
+  background-color: rgb(208, 209, 214) ; 
+  border-radius: 5px; 
+}
+
+.checkbox-item input {
+  margin-right: 10px; 
+} 
+
+li a .checkbox-item:hover {
+  background-color:  rgb(27, 47, 112);
+  color: rgb(237, 196, 62);
+}

@@ -99,7 +99,7 @@ function YoutubeAPI() {
         {/* Mapping through 'videos' array to display each video */}
         {videos.map((video) => (
           // Each video item is rendered as a list item with a unique key
-          <li key={video.id.videoId}>
+          <li key={video.id.videoId} className="checkbox-item">
             {/* Checkbox to the left of the video link */}
             <input 
               type="checkbox" 
