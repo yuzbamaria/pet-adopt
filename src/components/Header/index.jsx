@@ -56,18 +56,6 @@ function Header() {
                         <div className="navbar-nav collapse navbar-collapse " id="navbarTogglerDemo02">
                             <ul className="ms-auto mb-2 mb-lg-0">
 
-                                {/* <li className="nav-item">
-                                    <NavLink 
-                                    to="/CreateSkill" 
-                                    end
-                                    className={({ isActive }) =>
-                                        isActive ? 'nav-link active' : 'nav-link'
-                                    }
-                                    >
-                                    Add a skill
-                                    </NavLink> 
-                                </li> */}
-
                                 <li className="nav-item">
                                     <NavLink 
                                     to="/SignIn" 
