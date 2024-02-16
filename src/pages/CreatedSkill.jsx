@@ -23,6 +23,14 @@ const CreatedSkill = () => {
     savedBooks[index].completed = checked;
     setLocal("skills-tracker", userDB);
   }
+  function completedVideo(index, checked) {
+    videos[index].completed = checked;
+    setLocal("skills-tracker", userDB);
+  }
+  function completedToDo(index, checked) {
+    toDoItems[index].completed = checked;
+    setLocal("skills-tracker", userDB);
+  }
 
   /* 
     // --- list all skills ---
@@ -104,14 +112,17 @@ const CreatedSkill = () => {
                             type="checkbox"
                             value=""
                             id={`video${index}`}
+                            onChange={(e) => {
+                                completedVideo(index, e.target.checked);
+                            }}
                           />
                           <label
                             className="form-check-label"
                             htmlFor={`video${index}`}
                           >
                             <a
-                              href={`https://www.youtube.com/watch?v=${video}`}
-                            >{`https://www.youtube.com/watch?v=${video}`}</a>
+                              href={`https://www.youtube.com/watch?v=${video.video}`}
+                            >{`https://www.youtube.com/watch?v=${video.video}`}</a>
                           </label>
                         </div>
                       </li>
@@ -142,7 +153,7 @@ const CreatedSkill = () => {
                           value=""
                           id={`book${index}`}
                           onChange={(e) => {
-                            completedBook(index, e.target.checked);
+                            completedToDo(index, e.target.checked);
                           }}
                         />
                         <label

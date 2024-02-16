@@ -117,7 +117,8 @@ const addYoutubeVideos = (video, user) => {
     if (!userDB.userAccounts[user]["skills"][skill]["videos"]) {
         userDB.userAccounts[user]["skills"][skill]["videos"] = []; 
     }
-    userDB.userAccounts[user]["skills"][skill]["videos"]=[...video];
+    //userDB.userAccounts[user]["skills"][skill]["videos"]={...video.vid, completed:false};
+    userDB.userAccounts[user]["skills"][skill]["videos"]=video;
     setLocal("skills-tracker", userDB);
     calculateTotalTasks(skill);
     // console.log(userDB.userAccounts);

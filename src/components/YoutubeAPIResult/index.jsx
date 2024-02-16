@@ -24,17 +24,23 @@ function YoutubeAPI() {
     if (index === -1) {
       // Add the videoId to selectedVideos if not already selected
       //const completed=false;
-      updatedSelectedVideos = [...selectedVideos, videoId, false];
+      updatedSelectedVideos = [...selectedVideos, videoId];
     } else {
       // Remove the videoId from selectedVideos if already selected
       // Creates a copy of the selectedVideos array using the spread operator 
       // Ensures that the original selectedVideos array is not modified directly
       updatedSelectedVideos = selectedVideos.filter(id => id !== videoId);
     }
-    
+    // let temp = updatedSelectedVideos;
     // Update the state with the new selected videos
-    setSelectedVideos(updatedSelectedVideos);
-    addYoutubeVideos(updatedSelectedVideos, userDB.currentUser);
+    setSelectedVideos(updatedSelectedVideos)
+    // setSelectedVideos(updatedSelectedVideos.map((vid)=>{
+    //   return {video:vid, completed:false}
+    // }));
+    addYoutubeVideos(updatedSelectedVideos.map((vid)=>{
+      return {video:vid, completed:false}
+    }), userDB.currentUser);
+    
     // Resets the videos state, so the user starts with an empty list for each new search (clear the videos array)
     // setVideos([]);
     // Save updatedSelectedVideos to local storage
