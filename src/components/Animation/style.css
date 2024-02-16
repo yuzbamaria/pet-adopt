@@ -1,0 +1,33 @@
+.home-container {
+    overflow: hidden; 
+    margin: 50% 0 0 0 !important;
+    position: relative;
+} 
+
+.wrapper {
+    display:  flex;
+    /* position: relative; */
+    height: 100%;
+    width: 60%;
+    margin: 0 auto;
+    perspective: 450px;
+}
+
+h1 {
+    text-align:center;
+}
+
+.scroll-text {
+    color: rgb(237, 196, 62);
+    font-size: 2.5vw;
+    line-height: 1.5em;
+    font-weight: bold;
+    text-align: justify;
+    position: relative;
+    animation: scroll 60s linear forwards;
+}
+
+@keyframes scroll {
+    from { top: 0; transform: translateZ(0) rotateX(20deg)}
+    to { top: -7500px; transform: translate(-2500px) rotateX(21deg)}
+}
