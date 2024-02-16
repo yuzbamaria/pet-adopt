@@ -100,8 +100,8 @@ Successes:
 - Used Date picker for the Calendar component and Bootstrap React for styling.
 
 ## Screenshots of the application
-![screenshot-start-page](./assets/images/index.html.png)
-![screenshot-input-page](./assets/images/homepage.html.png)
+![screenshot-created-skill-page](public/assets/skill_tracker1.png)
+![screenshot-create-skill-page](public/assets/skill_tracker2.png)
 
 ## Resources
 
