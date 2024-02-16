@@ -33,7 +33,7 @@ export default function SignIn() {
     // });
     if(authenticateUser([userName, password])){
       toggleLogin();
-      navigate("/userprofile")
+      navigate("/CreateSkill")
     }
   };
 
