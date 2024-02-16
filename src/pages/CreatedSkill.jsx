@@ -17,7 +17,7 @@ const CreatedSkill = () => {
   //const lastSkill = Object.keys(skills)[Object.keys(skills).length-1];
   console.log(skills, currentSkill, currentUser);
   const { savedBooks, videos, toDoItems, startDate, finishDate } =
-    skills[currentSkill];
+    skills[currentSkill||userDB.selectedSkill];
 
   function completedBook(index, checked) {
     savedBooks[index].completed = checked;
@@ -153,7 +153,7 @@ const CreatedSkill = () => {
                           value=""
                           id={`book${index}`}
                           onChange={(e) => {
-                            completedToDo(index, e.target.checked);
+                            completedBook(index, e.target.checked);
                           }}
                         />
                         <label
@@ -204,6 +204,9 @@ const CreatedSkill = () => {
                             type="checkbox"
                             value=""
                             id={`item${index}`}
+                            onChange={(e) => {
+                                completedToDo(index, e.target.checked);
+                              }}
                           />
                           <label
                             className="form-check-label"
