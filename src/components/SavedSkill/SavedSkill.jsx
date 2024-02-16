@@ -25,8 +25,8 @@ function SavedSkill(props){
                     to="/CreatedSkill"
                     state = {{currentSkill:props.title}}
                     >
-                    skill: 
-                </Link>{props.title}</h3>
+                    skill: {props.title}
+                </Link></h3>
             <p className="skill-status">status: {props.tasks===props.completed ? "Completed!" : "In progress..."}</p>
             <span>progress bar: {props.completed}/{props.tasks}</span>
             <div className="progress">
