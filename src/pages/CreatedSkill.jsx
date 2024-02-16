@@ -36,6 +36,9 @@ const CreatedSkill = () => {
      */
 
     return (
+     
+      // conflicting
+//       created-skill-styling
         // <div>
         //     <h1>Welcome, {currentUser}!</h1>
         //     <div className="d-flex align-items-center flex-column">
@@ -84,6 +87,7 @@ const CreatedSkill = () => {
         //         </ul>
         //     </div>
         // </div>
+      // conflicting
 
 
 <div className="container min-vh-100 mt-5">
@@ -115,6 +119,27 @@ const CreatedSkill = () => {
             </div>
             <ul className="m-2">
                      {videos &&
+
+// conflicting
+//         <div>
+//             <h1>Welcome, {currentUser}!</h1>
+//             <div className="d-flex align-items-center flex-column">
+//                 <h2>Your Skill:</h2>
+//                 <ul>
+//                     <li>{currentSkill}</li>
+//                 </ul>
+//                 <h2>Start Date:</h2>
+//                 <ul>
+//                     <li>{startDate}</li>
+//                 </ul>
+//                 <h2>Finish Date:</h2>
+//                 <ul>
+//                     <li>{finishDate}</li>
+//                 </ul>
+//                 <h2>YouTube Videos:</h2>
+//                 {<ul>
+//                     {videos &&
+// conflicting
                         videos.map((video, index) => (
                             <li className="checkbox-item2" key={index}>
                                 <div className="form-check">

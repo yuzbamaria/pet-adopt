@@ -14,7 +14,7 @@ function Profile(){
     //     console.log(skill[1].progress);
     // })
     return (
-        <div className="wrapper">
+        <div className="wrapper container min-vh-100 ">
             <div className="profile">
                 {skills &&
                 skillsKeysArray.map((skill, index)=>(
