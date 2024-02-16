@@ -1,33 +1,95 @@
+.custom-intro {
+    color: rgb(208, 209, 214) ;
+    margin: 20px;
+    padding: 30px;
+}
+
 .home-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .wrapper {
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(4, 5, 9, 0.8);
+    
+    color: #fff;
+    /* font-family: 'Arial', sans-serif; */
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .scroll-text {
+    font-size: 2rem;
+    line-height: 1.5;
+    text-align: justify;
+    animation: scroll 60s linear infinite;
+    color: rgb(237, 196, 62);
+    transform: perspective(500px) rotateX(25deg);
+  }
+  
+  @keyframes scroll {
+    from { transform: translateY(0%); }
+    to { transform: translateY(-100%); }
+  }
+
+  /* @keyframes scroll {
+    from { top: 0; transform: translateZ(0) rotateX(20deg)}
+    to { top: -7500px; transform: translate(-2500px) rotateX(21deg)} */
+  
+
+/* .home-container {
     overflow: hidden; 
     margin: 50% 0 0 0 !important;
     position: relative;
 } 
 
-.wrapper {
-    display:  flex;
+.home-container::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 1) 40% rgba(20, 20, 20, 0) 100%);
+} */
+
+/* .wrapper {
+    display:  flex; */
     /* position: relative; */
-    height: 100%;
+    /* height: 100%;
     width: 60%;
     margin: 0 auto;
     perspective: 450px;
-}
+} */
 
-h1 {
+/* h1 {
     text-align:center;
-}
+} */
 
-.scroll-text {
+/* .scroll-text {
     color: rgb(237, 196, 62);
-    font-size: 2.5vw;
+    font-size: 3vw;
     line-height: 1.5em;
     font-weight: bold;
     text-align: justify;
     position: relative;
     animation: scroll 60s linear forwards;
-}
+} */
 
-@keyframes scroll {
+/* @keyframes scroll {
     from { top: 0; transform: translateZ(0) rotateX(20deg)}
     to { top: -7500px; transform: translate(-2500px) rotateX(21deg)}
-}
+} */
