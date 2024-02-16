@@ -1,12 +1,15 @@
 import "./css/Home.css"
 import React from "react";
+import Animation from "../components/Animation"
 
 function Home() {
-    return(<div className="wrapper min-vh-100">
-        <div className="home-container">
-            Welcome!
-        </div>
-    </div>)
+    return ( 
+        <>
+            <div className="container min-vh-100">
+                <Animation />
+            </div>
+        </>
+    )
 }
 
 export default Home;
