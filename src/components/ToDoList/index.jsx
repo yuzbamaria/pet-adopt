@@ -88,11 +88,11 @@ function ToDoList() {
                 // Each to-do item is rendered as a list item with a unique key
                 <li key={todo.id} className="checkbox-item">
                     {/* Checkbox input for marking the to-do item as completed */}
-                    <input 
+                    {/* <input 
                         type="checkbox" 
                         checked={todo.completed}
                         onChange={() => handleCheckboxChange(todo.id)}
-                    />
+                    /> */}
                     {/* Display the text of the to-do item */}
                     <span>
                         <p className="custom-todo">{todo.text}</p>

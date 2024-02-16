@@ -23,7 +23,7 @@ const addSkillToUser = (skill, user) => {
         toDoItems:[],
         savedBooks:[],
         books:[],
-        progress:undefined,
+        progress:0,
         totalTasks:0,
     };
     userDB.selectedSkill = skill;

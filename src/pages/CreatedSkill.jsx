@@ -21,14 +21,29 @@ const CreatedSkill = () => {
 
   function completedBook(index, checked) {
     savedBooks[index].completed = checked;
+    if(checked===true){
+        userDB.userAccounts[currentUser].skills[currentSkill||userDB.selectedSkill].progress++;
+    } else {
+        userDB.userAccounts[currentUser].skills[currentSkill||userDB.selectedSkill].progress--;
+    }
     setLocal("skills-tracker", userDB);
   }
   function completedVideo(index, checked) {
     videos[index].completed = checked;
+    if(checked===true){
+        userDB.userAccounts[currentUser].skills[currentSkill||userDB.selectedSkill].progress++;
+    } else {
+        userDB.userAccounts[currentUser].skills[currentSkill||userDB.selectedSkill].progress--;
+    }
     setLocal("skills-tracker", userDB);
   }
   function completedToDo(index, checked) {
     toDoItems[index].completed = checked;
+    if(checked===true){
+        userDB.userAccounts[currentUser].skills[currentSkill||userDB.selectedSkill].progress++;
+    } else {
+        userDB.userAccounts[currentUser].skills[currentSkill||userDB.selectedSkill].progress--;
+    }
     setLocal("skills-tracker", userDB);
   }
 
@@ -69,7 +84,7 @@ const CreatedSkill = () => {
               </h3>
               <p className="card-text custom-headline">
                 Your training awaits, young Jedi. Refine your{" "}
-                <strong>{currentSkill}</strong>{" "}
+                <strong>{currentSkill||userDB.selectedSkill}</strong>{" "}
               </p>
               <p className="card-text custom-p">
                 Your commitment to work on skill:
