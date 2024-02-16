@@ -23,7 +23,8 @@ function YoutubeAPI() {
     let updatedSelectedVideos = [];
     if (index === -1) {
       // Add the videoId to selectedVideos if not already selected
-      updatedSelectedVideos = [...selectedVideos, videoId];
+      //const completed=false;
+      updatedSelectedVideos = [...selectedVideos, videoId, false];
     } else {
       // Remove the videoId from selectedVideos if already selected
       // Creates a copy of the selectedVideos array using the spread operator 

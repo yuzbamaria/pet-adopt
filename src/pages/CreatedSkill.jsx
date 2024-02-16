@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from 'react-router-dom';
-import { userDB } from "../utils/database";
+import { userDB, setLocal } from "../utils/database";
 
 const CreatedSkill = () => {
     // Get the current user's username
@@ -16,6 +16,11 @@ const CreatedSkill = () => {
     //const lastSkill = Object.keys(skills)[Object.keys(skills).length-1];
     console.log(skills, currentSkill, currentUser);
     const { savedBooks, videos, toDoItems, startDate, finishDate } = skills[currentSkill];
+
+    function completedBook(index, checked){
+        savedBooks[index].completed = checked;
+        setLocal("skills-tracker", userDB);        
+    }
 
     /* 
     // --- list all skills ---
@@ -64,6 +69,14 @@ const CreatedSkill = () => {
                     {savedBooks &&
                         savedBooks.map((book, index) => (
                             <li key={index}>
+                                <input 
+                                type="checkbox" 
+                                className="p-3"
+                                
+                                onChange={(e)=>{
+                                    completedBook(index, e.target.checked)
+                                }}
+                                />
                                 <h5>Book Title:</h5>
                                 {book.title}
                                 <h5>Author:</h5>
