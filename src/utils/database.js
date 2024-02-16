@@ -3,8 +3,9 @@
 const userDB = getLocal("skills-tracker") ||
 {
     currentUser:"",
+    // selectedSkill:"",
     // Object to store user accounts (each containing username, password, skills, dates, video links and to-do list).
-    userAccounts:{}
+    userAccounts:{},
 }
 
 // Adds a skill to the specified user's account in the userDB.

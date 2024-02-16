@@ -1,9 +1,12 @@
 import React from "react";
+import { useLocation } from 'react-router-dom';
 import { userDB } from "../utils/database";
 
 const CreatedSkill = (props) => {
     // Get the current user's username
     const { currentUser } = userDB;
+    const { state } = useLocation();
+    const { currentSkill } = state;
 
     // Get the current user's account details
     const currentUserDetails = userDB.userAccounts[currentUser];
@@ -11,8 +14,8 @@ const CreatedSkill = (props) => {
     // Extract relevant information
     const { skills } = currentUserDetails;
     //const lastSkill = Object.keys(skills)[Object.keys(skills).length-1];
-    console.log(skills, props.skill, currentUser);
-    const { savedBooks, videos, toDoItems } = skills[props.skill];
+    console.log(skills, currentSkill, currentUser);
+    const { savedBooks, videos, toDoItems } = skills[currentSkill];
 
     return (
         <div>

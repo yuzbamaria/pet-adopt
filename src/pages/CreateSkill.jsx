@@ -56,7 +56,7 @@ function CreateSkill() {
                 <div className="row">
                     <div className="col text-center">
                         <button className="mr-3 ml-3 custom-btn" onClick={()=> navigate("/CreatedSkill",{
-                            skill:currentSkill
+                            state:{currentSkill:currentSkill}
                         })}
                             >Submit</button>
                     </div>
