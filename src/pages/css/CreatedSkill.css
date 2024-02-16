@@ -1,0 +1,33 @@
+.checkbox-item2 {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgb(27, 47, 112) !important;
+    color: rgb(237, 196, 62);
+    border-radius: 5px;
+  }
+  
+  .checkbox-item2 input {
+    margin-right: 10px;
+  }
+  
+  .checkbox-item2 a {
+    color: rgb(237, 196, 62) !important; /* Yellow color for links */
+  }
+
+.custom-title2 {
+    color: rgb(27, 47, 112) !important;
+    border-bottom: 2px solid  rgb(27, 47, 112);
+}
+
+.custom-headline {
+    font-family: "Nothing You Could Do", cursive !important;
+    font-size: 25px;
+}
+
+.custom-p {
+    font-size: 18px;
+    font-weight:500;
+    color: rgb(27, 47, 112) !important;
+}
