@@ -4,9 +4,11 @@ import "./style.css"
 function Animation() {
     return ( <>
     {/* <div className="custom-intro"><h1>Master Your Force</h1></div> */}
-    <div className="custom-intro">
-        <h1>Master Your Force</h1>
-        <img src="path_to_your_image.jpg" alt="Your Image" style={{ float: 'right', width: '200px', height: '200px', marginLeft: '20px' }} />
+    <div className="custom-intro text-center">
+        <div className="d-flex align-items-center justify-content-center">
+            <h1>Master Your Force</h1>
+            <img src="/assets/light-saber.png" alt="Your Image" style={{ width: '80px', marginLeft: '20px' }} />
+        </div>
     </div>
        
         <div className="home-container">
