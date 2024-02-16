@@ -40,17 +40,16 @@ const CreatedSkill = () => {
             <div className="d-flex align-items-center flex-column">
                 <h2>Your Skill:</h2>
                 <ul>
-                    
+                    <li>{currentSkill}</li>
                 </ul>
                 <h2>Start Date:</h2>
                 <ul>
-                    
+                    <li>{startDate}</li>
                 </ul>
                 <h2>Finish Date:</h2>
                 <ul>
-                    
+                    <li>{finishDate}</li>
                 </ul>
-
                 <h2>YouTube Videos:</h2>
                 {<ul>
                     {videos &&
