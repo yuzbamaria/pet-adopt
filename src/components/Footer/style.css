@@ -1,3 +1,16 @@
+.custom-footer {
+    border-top: 1px solid rgb(116, 121, 138);
+    margin: 0;
+    padding: 15px 0 10px 0 !important;
+   
+}
+
+.custom-fluid {
+    padding: 0 !important;
+    /* margin: 5px 0 !important; */
+
+}
+
 .custom-footer:hover{
     color:rgb(237, 196, 62) !important; 
 }

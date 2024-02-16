@@ -3,8 +3,9 @@
 const userDB = getLocal("skills-tracker") ||
 {
     currentUser:"",
+    selectedSkill:"",
     // Object to store user accounts (each containing username, password, skills, dates, video links and to-do list).
-    userAccounts:{}
+    userAccounts:{},
 }
 
 // Adds a skill to the specified user's account in the userDB.
@@ -15,6 +16,7 @@ const addSkillToUser = (skill, user) => {
     if (!userDB.userAccounts[user]["skills"]) {
         userDB.userAccounts[user]["skills"] = {}; 
     }
+    if (userDB.userAccounts[user]["skills"][skill]) return
     // Pushes a new skill to the `skills` array of the specified user.
     userDB.userAccounts[user]["skills"][skill] = {
         videos:[],
@@ -24,7 +26,7 @@ const addSkillToUser = (skill, user) => {
         progress:undefined,
         totalTasks:0,
     };
-
+    userDB.selectedSkill = skill;
     // Saves the updated userDB to local storage.
     setLocal("skills-tracker", userDB);
     console.log(`Skill "${skill}" added to user ${user}`);
@@ -63,15 +65,17 @@ export const addBooks = (booksObj, key="books") => {
     calculateTotalTasks(skill);
 }
 
-export function getCurrentSkill(user=userDB.currentUser, indexOffset=1){
-    if(userDB.userAccounts[user]["skills"])
-    {
-        const skills = userDB.userAccounts[user]["skills"];
-        const index = Object.keys(skills).length;
-        const lastKey = Object.keys(skills)[index-indexOffset];
-        // console.log(index)
-        // console.log(lastKey)
-        return lastKey;
+export function getCurrentSkill(/* user=userDB.currentUser, indexOffset=1 */){
+    if(userDB.selectedSkill){
+        return userDB.selectedSkill
+    // if(userDB.userAccounts[user]["skills"])
+    // {
+    //     const skills = userDB.userAccounts[user]["skills"];
+    //     const index = Object.keys(skills).length;
+    //     const lastKey = Object.keys(skills)[index-indexOffset];
+    //     // console.log(index)
+    //     // console.log(lastKey)
+    //     return lastKey;
     }else {
         // return ""
         throw new Error("You need to create a skill first!")

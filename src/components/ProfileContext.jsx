@@ -15,10 +15,10 @@ export function useProfileUpdateContext(){
 export function ProfileProvider ({ children }) {
     const [loggedIn, setLoggedIn] = useState(Boolean(userDB.currentUser));
     const [user, setUser] = useState(userDB.currentUser);
+    const [selectedSkill, setselectedSkill] = useState(userDB.selectedSkill);
 
     function toggleLoggedIn(){
         setLoggedIn((loggedIn)=>!loggedIn);
-        setUser(userDB.currentUser)
         setLocal("skills-tracker", userDB);
         console.log("current user is:", userDB.currentUser)
     }
