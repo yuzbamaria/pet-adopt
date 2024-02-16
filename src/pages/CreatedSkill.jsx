@@ -97,7 +97,7 @@ const CreatedSkill = () => {
         <div className="card-body text-center">
         <div className="d-flex justify-content-center align-items-center mb-3" >
         {/* Placeholder image */}
-            <img src="../../public/assets/jedi.png" alt="jedi" className="img-fluid" style={{  height: '150px'  }} />
+            <img src="/assets/jedi.png" alt="jedi" className="img-fluid" style={{  height: '150px'  }} />
         </div>
           <h3 className="card-title custom-title2">Welcome, Master {currentUser}</h3>
           <p className="card-text custom-headline">Your training awaits, young Jedi. Refine your <strong>{ currentSkill }</strong> </p>
@@ -113,7 +113,7 @@ const CreatedSkill = () => {
           <div className="card">
             <div className="card-header text-center">
               <div className="d-flex justify-content-center align-items-center mb-3">
-                <img src="../../public/assets/youtube.png" alt="youtube-icon" className="img-fluid" style={{ height: '50px' }} />
+                <img src="/assets/youtube.png" alt="youtube-icon" className="img-fluid" style={{ height: '50px' }} />
               </div>
                 <h5 className="card-title d-inline custom-title2">Youtube videos</h5>
             </div>
@@ -157,7 +157,7 @@ const CreatedSkill = () => {
             <div className="card">
                 <div className="card-header text-center">
                 <div className="d-flex justify-content-center align-items-center mb-3">
-                    <img src="../../public/assets/books.png" alt="youtube-icon" className="img-fluid" style={{ height: '50px' }} />
+                    <img src="/assets/books.png" alt="youtube-icon" className="img-fluid" style={{ height: '50px' }} />
                 </div>
                     <h5 className="card-title d-inline custom-title2">Books</h5>
                 </div>
@@ -180,7 +180,7 @@ const CreatedSkill = () => {
         <div className="card">
                 <div className="card-header text-center">
                 <div className="d-flex justify-content-center align-items-center mb-3">
-                    <img src="../../public/assets/to-do-list.png" alt="youtube-icon" className="img-fluid" style={{ height: '50px' }} />
+                    <img src="/assets/to-do-list.png" alt="youtube-icon" className="img-fluid" style={{ height: '50px' }} />
                 </div>
                     <h5 className="card-title d-inline custom-title2">To-do list</h5>
                 </div>
