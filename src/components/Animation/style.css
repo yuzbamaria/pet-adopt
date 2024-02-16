@@ -40,17 +40,16 @@
     color: rgb(237, 196, 62);
     transform: perspective(500px) rotateX(25deg);
   }
-  
+/*   
   @keyframes scroll {
     from { transform: translateY(0%); }
     to { transform: translateY(-100%); }
-  }
+  } */
 
   /* @keyframes scroll {
     from { top: 0; transform: translateZ(0) rotateX(20deg)}
-    to { top: -7500px; transform: translate(-2500px) rotateX(21deg)} */
-  
-
+    to { top: -7500px; transform: translate(-2500px) rotateX(21deg)}
+  } */
 /* .home-container {
     overflow: hidden; 
     margin: 50% 0 0 0 !important;
