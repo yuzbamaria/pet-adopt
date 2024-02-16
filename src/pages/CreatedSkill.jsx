@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from 'react-router-dom';
-import { userDB } from "../utils/database";
+import { userDB, setLocal } from "../utils/database";
 import "./css/CreatedSkill.css"
 
 const CreatedSkill = () => {
@@ -17,6 +17,11 @@ const CreatedSkill = () => {
     //const lastSkill = Object.keys(skills)[Object.keys(skills).length-1];
     console.log(skills, currentSkill, currentUser);
     const { savedBooks, videos, toDoItems, startDate, finishDate } = skills[currentSkill];
+
+    function completedBook(index, checked){
+        savedBooks[index].completed = checked;
+        setLocal("skills-tracker", userDB);        
+    }
 
     /* 
     // --- list all skills ---
@@ -164,8 +169,27 @@ const CreatedSkill = () => {
                 <ul className="m-2">
                     {savedBooks &&
                         savedBooks.map((book, index) => (
+                            <li key={index}>
+                                <input 
+                                type="checkbox" 
+                                className="p-3"
+                                
+                                onChange={(e)=>{
+                                    completedBook(index, e.target.checked)
+                                }}
+                                />
+                                <h5>Book Title:</h5>
+                                {book.title}
+                                <h5>Author:</h5>
+                                {book.author}
+                                <h5>Web Link:</h5>
+                                <a href={`${book.url}`}>{`Web Link`}</a>
+                            </li>
+                        ))}
                             <li className="checkbox-item2" key={index}>
-                                <input className="form-check-input" type="checkbox" value="" id={`book${index}`} />
+                                <input className="form-check-input" type="checkbox" value="" id={`book${index}`} onChange={(e)=>{
+                                    completedBook(index, e.target.checked)
+                                }} />
                                 <label className="form-check-label" htmlFor={`book${index}`}>   
                                  <p> <strong> Book Title:</strong> {book.title}</p>
                                  <p> <strong> Author: </strong> {book.author}</p>

@@ -30,6 +30,7 @@ async function callBookAPI(){
           title:"",
           author:"",
           url:"",
+          completed:false,
         }
         // console.log(apiResponse)
         book.title = apiResponse.docs[i].title
