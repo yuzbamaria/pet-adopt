@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from 'react-router-dom';
 import { userDB } from "../utils/database";
 
-const CreatedSkill = (props) => {
+const CreatedSkill = () => {
     // Get the current user's username
     const { currentUser } = userDB;
     const { state } = useLocation();
@@ -15,29 +15,40 @@ const CreatedSkill = (props) => {
     const { skills } = currentUserDetails;
     //const lastSkill = Object.keys(skills)[Object.keys(skills).length-1];
     console.log(skills, currentSkill, currentUser);
-    const { savedBooks, videos, toDoItems } = skills[currentSkill];
+    const { savedBooks, videos, toDoItems, startDate, finishDate } = skills[currentSkill];
+
+    /* 
+    // --- list all skills ---
+    {Object.keys(skills).map((skill, index) => (
+        <li key={index}>{skill}</li>
+    ))}
+        
+    // --- list all start dates ---
+    {Object.values(skills).map((skill, index) => (
+        <li key={index}>{skill["startDate"]}</li>
+    ))}
+
+    // --- list all finish dates ---
+    {Object.values(skills).map((skill, index) => (
+        <li key={index}>{skill["finishDate"]}</li>
+    ))}
+     */
 
     return (
         <div>
             <h1>Welcome, {currentUser}!</h1>
             <div className="d-flex align-items-center flex-column">
-                <h2>Your Skills:</h2>
+                <h2>Your Skill:</h2>
                 <ul>
-                    {Object.keys(skills).map((skill, index) => (
-                        <li key={index}>{skill}</li>
-                    ))}
+                    
                 </ul>
-                <h2>Start Dates:</h2>
+                <h2>Start Date:</h2>
                 <ul>
-                    {Object.values(skills).map((skill, index) => (
-                        <li key={index}>{skill["startDate"]}</li>
-                    ))}
+                    
                 </ul>
-                <h2>Finish Dates:</h2>
+                <h2>Finish Date:</h2>
                 <ul>
-                    {Object.values(skills).map((skill, index) => (
-                        <li key={index}>{skill["finishDate"]}</li>
-                    ))}
+                    
                 </ul>
 
                 <h2>YouTube Videos:</h2>
