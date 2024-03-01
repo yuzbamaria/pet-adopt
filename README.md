@@ -115,4 +115,4 @@ Successes:
 To be able to use this MVP version, please sign up first (click on the Sign In in the navbar, then under the Sign in form, click on Sign up).
 
 ## License 
-MIT License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
