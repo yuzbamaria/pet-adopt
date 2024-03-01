@@ -97,6 +97,8 @@ Successes:
 **Maria:**
 - Mostly worked on Create SKill and Created Skill pages (apart from Books api), Calendar component, bits of Navbar, Footer.
 - Utilised Youtube API to add videos to the to-do list.
+- Created the Skill Name section with the start and finish dates.
+- Created the To-do list component.
 - Used Date picker for the Calendar component and Bootstrap React for styling.
 
 ## Screenshots of the application
@@ -109,8 +111,8 @@ Successes:
 
 **2. GitHub Repo: https://github.com/yuzbamaria/skills-tracker**
 
-## Installation
-N/A
+## Installation 
+To be able to use this MVP version, please sign up first (click on the Sign In in the navbar, then under the Sign in form, click on Sign up).
 
 ## License 
 MIT License
